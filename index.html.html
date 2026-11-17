@@ -1,0 +1,2533 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CME — Conselho Municipal de Educação | Juruá - AM</title>
+  <link id="cme-favicon" rel="icon" type="image/svg+xml" href="" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', 'sans-serif'],
+            body: ['Inter', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            cmeGreen: {
+              50: '#ecfdf5',
+              100: '#d1fae5',
+              600: '#15803d',
+              700: '#0f6b47',
+              800: '#0b5337',
+              900: '#063d28',
+            },
+            cmeBlue: {
+              50: '#f0f9ff',
+              100: '#e0f2fe',
+              600: '#1d4ed8',
+              700: '#0c4a6e',
+              800: '#08334e',
+              900: '#052236',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    :root {
+      --font-scale: 1;
+    }
+    html {
+      font-size: calc(16px * var(--font-scale));
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background-color: #f8fafc;
+      color: #0f172a;
+      overflow-x: hidden;
+    }
+    h1, h2, h3, h4, .font-display {
+      font-family: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+    }
+    *:focus-visible {
+      outline: 3px solid #1d4ed8;
+      outline-offset: 2px;
+      border-radius: 6px;
+    }
+    /* High Contrast Mode */
+    body.high-contrast {
+      background-color: #000000 !important;
+      color: #ffffff !important;
+    }
+    body.high-contrast header,
+    body.high-contrast nav,
+    body.high-contrast footer,
+    body.high-contrast .hc-card {
+      background-color: #0b1220 !important;
+      color: #ffffff !important;
+      border-color: #facc15 !important;
+    }
+    body.high-contrast .hc-muted {
+      color: #e2e8f0 !important;
+    }
+    body.high-contrast .hc-btn-primary {
+      background-color: #facc15 !important;
+      color: #000000 !important;
+      border-color: #facc15 !important;
+    }
+    /* Dark Mode Theme (coexists with High Contrast) */
+    body.dark-mode:not(.high-contrast) {
+      background-color: #0b1120 !important;
+      color: #e2e8f0 !important;
+    }
+    body.dark-mode:not(.high-contrast) header,
+    body.dark-mode:not(.high-contrast) nav,
+    body.dark-mode:not(.high-contrast) .hc-card,
+    body.dark-mode:not(.high-contrast) #mobile-nav-drawer {
+      background-color: #111b31 !important;
+      color: #e2e8f0 !important;
+      border-color: #1e293b !important;
+    }
+    body.dark-mode:not(.high-contrast) footer {
+      background-color: #061326 !important;
+      color: #cbd5e1 !important;
+      border-color: #1e293b !important;
+    }
+    body.dark-mode:not(.high-contrast) .bg-white:not(.logo-tile) {
+      background-color: #111b31 !important;
+      color: #e2e8f0 !important;
+    }
+    body.dark-mode:not(.high-contrast) .bg-slate-50,
+    body.dark-mode:not(.high-contrast) .bg-slate-50\/80,
+    body.dark-mode:not(.high-contrast) .bg-slate-50\/70,
+    body.dark-mode:not(.high-contrast) .bg-slate-50\/60,
+    body.dark-mode:not(.high-contrast) .bg-slate-50\/50 {
+      background-color: #16223b !important;
+    }
+    body.dark-mode:not(.high-contrast) .bg-slate-100 {
+      background-color: #1e293b !important;
+      color: #e2e8f0 !important;
+    }
+    body.dark-mode:not(.high-contrast) .text-slate-900 {
+      color: #f8fafc !important;
+    }
+    body.dark-mode:not(.high-contrast) .text-slate-800,
+    body.dark-mode:not(.high-contrast) .text-slate-700 {
+      color: #cbd5e1 !important;
+    }
+    body.dark-mode:not(.high-contrast) .text-slate-600,
+    body.dark-mode:not(.high-contrast) .text-slate-500,
+    body.dark-mode:not(.high-contrast) .hc-muted {
+      color: #94a3b8 !important;
+    }
+    body.dark-mode:not(.high-contrast) .border-slate-200,
+    body.dark-mode:not(.high-contrast) .border-slate-200\/90,
+    body.dark-mode:not(.high-contrast) .border-slate-200\/80,
+    body.dark-mode:not(.high-contrast) .border-slate-100,
+    body.dark-mode:not(.high-contrast) .border-slate-300 {
+      border-color: #273552 !important;
+    }
+    body.dark-mode:not(.high-contrast) input:not([type="checkbox"]):not([type="file"]),
+    body.dark-mode:not(.high-contrast) select,
+    body.dark-mode:not(.high-contrast) textarea {
+      background-color: #0b1120 !important;
+      color: #f1f5f9 !important;
+      border-color: #334155 !important;
+    }
+    body.dark-mode:not(.high-contrast) .bg-cmeGreen-50,
+    body.dark-mode:not(.high-contrast) .bg-cmeGreen-50\/70,
+    body.dark-mode:not(.high-contrast) .bg-cmeGreen-50\/80,
+    body.dark-mode:not(.high-contrast) .bg-cmeBlue-50,
+    body.dark-mode:not(.high-contrast) .bg-cmeBlue-50\/70,
+    body.dark-mode:not(.high-contrast) .bg-cmeBlue-50\/50 {
+      background-color: #13233f !important;
+      border-color: #1e3a5f !important;
+    }
+    body.dark-mode:not(.high-contrast) .text-cmeGreen-900,
+    body.dark-mode:not(.high-contrast) .text-cmeGreen-800 {
+      color: #6ee7b7 !important;
+    }
+    body.dark-mode:not(.high-contrast) .text-cmeBlue-900,
+    body.dark-mode:not(.high-contrast) .text-cmeBlue-800,
+    body.dark-mode:not(.high-contrast) .text-cmeBlue-700 {
+      color: #7dd3fc !important;
+    }
+    .tab-active {
+      background: linear-gradient(135deg, #0f6b47 0%, #0c4a6e 100%);
+      color: #ffffff !important;
+      box-shadow: 0 4px 12px -2px rgba(12, 74, 110, 0.28);
+    }
+    @media print {
+      .no-print {
+        display: none !important;
+      }
+      body {
+        background: #ffffff !important;
+        color: #000000 !important;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col bg-slate-50 text-slate-900">
+
+  <!-- Skip to Content Link for Accessibility -->
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 bg-cmeBlue-700 text-white px-4 py-2 rounded-lg font-semibold shadow-lg">
+    Ir para o conteúdo principal
+  </a>
+
+  <!-- Accessibility & Institutional Top Bar -->
+  <div class="bg-cmeBlue-900 text-white text-xs sm:text-sm border-b border-cmeBlue-800 no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-2 text-sky-100">
+        <span class="inline-block w-2 h-2 rounded-full bg-emerald-400" aria-hidden="true"></span>
+        <span>Município de Juruá — Estado do Amazonas | Órgão Normativo, Deliberativo, Fiscalizador e Consultivo</span>
+      </div>
+      <div class="flex flex-wrap items-center gap-1.5 sm:gap-2" role="region" aria-label="Ferramentas de acessibilidade">
+        <span class="hidden md:inline text-sky-200 text-xs mr-1">Acessibilidade:</span>
+        <button id="btn-font-dec" type="button" aria-label="Diminuir tamanho da fonte" title="Diminuir fonte (A-)"
+          class="px-2.5 py-1 rounded-md bg-cmeBlue-800 hover:bg-cmeBlue-700 border border-sky-700/60 text-white font-semibold transition cursor-pointer">
+          A-
+        </button>
+        <button id="btn-font-reset" type="button" aria-label="Restaurar tamanho padrão da fonte" title="Fonte padrão (100%)"
+          class="px-2.5 py-1 rounded-md bg-cmeBlue-800 hover:bg-cmeBlue-700 border border-sky-700/60 text-white font-semibold transition cursor-pointer">
+          A
+        </button>
+        <button id="btn-font-inc" type="button" aria-label="Aumentar tamanho da fonte" title="Aumentar fonte (A+)"
+          class="px-2.5 py-1 rounded-md bg-cmeBlue-800 hover:bg-cmeBlue-700 border border-sky-700/60 text-white font-semibold transition cursor-pointer">
+          A+
+        </button>
+        <button id="btn-high-contrast" type="button" aria-pressed="false" aria-label="Alternar modo alto contraste"
+          class="px-2.5 py-1 rounded-md bg-cmeGreen-700 hover:bg-cmeGreen-600 border border-emerald-500/50 text-white font-semibold transition cursor-pointer flex items-center gap-1">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="9"></circle>
+            <path d="M12 3a9 9 0 0 0 0 18V3z"></path>
+          </svg>
+          <span>Alto Contraste</span>
+        </button>
+        <button id="btn-dark-mode" type="button" aria-pressed="false" aria-label="Alternar modo escuro"
+          class="px-2.5 py-1 rounded-md bg-cmeBlue-800 hover:bg-cmeBlue-700 border border-sky-500/50 text-white font-semibold transition cursor-pointer flex items-center gap-1">
+          <svg id="icon-moon" class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <svg id="icon-sun" class="w-3.5 h-3.5 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path stroke-linecap="round" d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+          </svg>
+          <span id="label-dark-mode">Modo Escuro</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Header -->
+  <header class="bg-white border-b border-slate-200 shadow-sm sticky top-0 z-40 no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center justify-between gap-4">
+      <!-- Brand / Official Logo -->
+      <button type="button" data-tab="inicio" class="nav-trigger flex items-center gap-3.5 text-left group cursor-pointer min-w-0 rounded-2xl p-2 -m-2 border border-transparent hover:border-slate-200/90 hover:bg-slate-50/90 transition-all">
+        <div class="logo-tile w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-white p-1.5 border border-slate-200 shadow-sm shrink-0 flex items-center justify-center overflow-hidden">
+          <img
+            src=""
+            data-cme-logo
+            alt="Logo oficial do Conselho Municipal de Educação de Juruá-AM"
+            class="w-full h-full object-contain"
+          />
+        </div>
+        <div class="min-w-0 rounded-2xl px-3.5 py-2 border border-slate-200/80 bg-slate-50/70 group-hover:border-cmeBlue-200 group-hover:bg-cmeBlue-50/50 transition-all">
+          <div class="flex items-center gap-2 flex-wrap">
+            <span class="px-2 py-0.5 text-[11px] font-bold uppercase tracking-wider rounded-md bg-cmeGreen-100 text-cmeGreen-800">
+              Portal Institucional
+            </span>
+            <span class="text-xs font-semibold text-cmeBlue-700">Juruá • Amazonas</span>
+          </div>
+          <h1 class="text-base sm:text-xl font-extrabold text-slate-900 tracking-tight group-hover:text-cmeBlue-700 transition truncate">
+            Conselho Municipal de Educação
+          </h1>
+          <p class="text-xs text-slate-600 hidden sm:block">
+            CME Juruá-AM • Normatização, Deliberação, Fiscalização e Controle Social da Educação
+          </p>
+        </div>
+      </button>
+
+      <!-- Desktop Quick Action -->
+      <div class="hidden lg:flex items-center gap-2.5 shrink-0">
+        <button type="button" data-tab="servicos" class="nav-trigger px-3.5 py-2 rounded-xl text-sm font-semibold bg-cmeBlue-50 text-cmeBlue-800 hover:bg-cmeBlue-100 border border-cmeBlue-100 transition cursor-pointer">
+          Consultar Processo
+        </button>
+        <button type="button" data-tab="admin" class="nav-trigger px-3.5 py-2 rounded-xl text-sm font-semibold bg-cmeGreen-700 text-white hover:bg-cmeGreen-800 shadow-sm transition cursor-pointer flex items-center gap-1.5">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
+          </svg>
+          <span>Painel Gestor</span>
+        </button>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button id="btn-mobile-menu" type="button" aria-expanded="false" aria-controls="mobile-nav-drawer"
+        aria-label="Abrir menu de navegação"
+        class="lg:hidden p-2.5 rounded-xl border border-slate-200 text-slate-700 hover:bg-slate-100 transition cursor-pointer shrink-0">
+        <svg id="icon-hamburger" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+        <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Desktop Navigation Tabs -->
+    <nav aria-label="Navegação principal do portal" class="hidden lg:block border-t border-slate-100 bg-slate-50/80">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 flex items-center gap-1.5 overflow-x-auto" id="desktop-tabs">
+        <button type="button" data-tab="inicio" class="nav-trigger tab-active px-3.5 py-2 rounded-xl text-sm font-semibold whitespace-nowrap transition cursor-pointer">
+          Início
+        </button>
+        <button type="button" data-tab="conselho" class="nav-trigger px-3.5 py-2 rounded-xl text-sm font-semibold text-slate-700 hover:bg-white hover:text-cmeBlue-700 whitespace-nowrap transition cursor-pointer">
+          O Conselho
+        </button>
+        <button type="button" data-tab="legislacao" class="nav-trigger px-3.5 py-2 rounded-xl text-sm font-semibold text-slate-700 hover:bg-white hover:text-cmeBlue-700 whitespace-nowrap transition cursor-pointer">
+          Legislação e Atos
+        </button>
+        <button type="button" data-tab="servicos" class="nav-trigger px-3.5 py-2 rounded-xl text-sm font-semibold text-slate-700 hover:bg-white hover:text-cmeBlue-700 whitespace-nowrap transition cursor-pointer">
+          Serviços às Escolas e Processos
+        </button>
+        <button type="button" data-tab="controle" class="nav-trigger px-3.5 py-2 rounded-xl text-sm font-semibold text-slate-700 hover:bg-white hover:text-cmeBlue-700 whitespace-nowrap transition cursor-pointer">
+          Controle Social e Monitoramento
+        </button>
+        <button type="button" data-tab="noticias" class="nav-trigger px-3.5 py-2 rounded-xl text-sm font-semibold text-slate-700 hover:bg-white hover:text-cmeBlue-700 whitespace-nowrap transition cursor-pointer">
+          Notícias e Agenda
+        </button>
+        <button type="button" data-tab="ouvidoria" class="nav-trigger px-3.5 py-2 rounded-xl text-sm font-semibold text-slate-700 hover:bg-white hover:text-cmeBlue-700 whitespace-nowrap transition cursor-pointer">
+          Ouvidoria e Contato
+        </button>
+        <button type="button" data-tab="admin" class="nav-trigger px-3.5 py-2 rounded-xl text-sm font-semibold text-cmeGreen-800 bg-cmeGreen-50 hover:bg-cmeGreen-100 whitespace-nowrap transition cursor-pointer ml-auto">
+          Painel Administrativo
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-nav-drawer" class="lg:hidden hidden border-t border-slate-200 bg-white px-4 pt-3 pb-5 space-y-1.5 shadow-lg">
+      <button type="button" data-tab="inicio" class="nav-trigger tab-active w-full text-left px-4 py-3 rounded-xl text-sm font-semibold cursor-pointer">Início</button>
+      <button type="button" data-tab="conselho" class="nav-trigger w-full text-left px-4 py-3 rounded-xl text-sm font-semibold text-slate-700 hover:bg-slate-100 cursor-pointer">O Conselho</button>
+      <button type="button" data-tab="legislacao" class="nav-trigger w-full text-left px-4 py-3 rounded-xl text-sm font-semibold text-slate-700 hover:bg-slate-100 cursor-pointer">Legislação e Atos Normativos</button>
+      <button type="button" data-tab="servicos" class="nav-trigger w-full text-left px-4 py-3 rounded-xl text-sm font-semibold text-slate-700 hover:bg-slate-100 cursor-pointer">Serviços às Escolas e Processos</button>
+      <button type="button" data-tab="controle" class="nav-trigger w-full text-left px-4 py-3 rounded-xl text-sm font-semibold text-slate-700 hover:bg-slate-100 cursor-pointer">Controle Social e Monitoramento</button>
+      <button type="button" data-tab="noticias" class="nav-trigger w-full text-left px-4 py-3 rounded-xl text-sm font-semibold text-slate-700 hover:bg-slate-100 cursor-pointer">Notícias e Agenda</button>
+      <button type="button" data-tab="ouvidoria" class="nav-trigger w-full text-left px-4 py-3 rounded-xl text-sm font-semibold text-slate-700 hover:bg-slate-100 cursor-pointer">Ouvidoria e Contato</button>
+      <button type="button" data-tab="admin" class="nav-trigger w-full text-left px-4 py-3 rounded-xl text-sm font-semibold bg-cmeGreen-50 text-cmeGreen-800 border border-cmeGreen-200 cursor-pointer">Painel Administrativo</button>
+    </div>
+  </header>
+
+  <!-- Toast / Status Notification Banner -->
+  <div id="toast-container" class="fixed bottom-5 right-5 z-50 max-w-md w-[calc(100%-2.5rem)] space-y-2 no-print" aria-live="polite"></div>
+
+  <!-- Main Content Container -->
+  <main id="main-content" class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+
+    <!-- ==================== 1. INÍCIO (HOME) ==================== -->
+    <section id="section-inicio" class="page-section space-y-8">
+      <!-- Hero Banner -->
+      <div class="rounded-3xl bg-gradient-to-br from-cmeGreen-800 via-cmeGreen-700 to-cmeBlue-800 text-white p-6 sm:p-10 shadow-xl relative overflow-hidden">
+        <div class="absolute -right-16 -top-16 w-72 h-72 rounded-full bg-white/5 pointer-events-none"></div>
+        <div class="absolute -left-20 -bottom-24 w-80 h-80 rounded-full bg-cmeBlue-600/20 pointer-events-none"></div>
+
+        <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div class="lg:col-span-7 space-y-4">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/15 text-emerald-100 text-xs font-semibold border border-white/20">
+              <span>Gestão Democrática &amp; Transparência Educacional • Lei nº 297/2003 e Lei nº 367/2009</span>
+            </div>
+            <h2 class="text-2xl sm:text-4xl font-extrabold leading-tight tracking-tight">
+              Conselho Municipal de Educação de Juruá — Amazonas
+            </h2>
+            <p class="text-sky-100 text-sm sm:text-base leading-relaxed max-w-2xl">
+              Órgão do Sistema Municipal de Ensino com função <strong>normativa, consultiva, deliberativa e fiscalizadora</strong>,
+              criado pela Lei Municipal nº 297, de 16 de abril de 2003, e com composição e mandatos atualizados pela
+              Lei Municipal nº 367, de 16 de novembro de 2009.
+            </p>
+            <div class="pt-2 flex flex-wrap gap-3">
+              <button type="button" data-tab="legislacao" class="nav-trigger px-5 py-3 rounded-xl bg-white text-cmeBlue-900 font-bold text-sm hover:bg-sky-50 shadow-md transition cursor-pointer">
+                Ver Lei nº 297/2003, Lei nº 367/2009 e Regimento
+              </button>
+              <button type="button" data-tab="conselho" class="nav-trigger px-5 py-3 rounded-xl bg-cmeBlue-900/70 hover:bg-cmeBlue-900 text-white font-semibold text-sm border border-white/25 transition cursor-pointer">
+                Composição Legal (7 Membros) e Comissões
+              </button>
+              <button type="button" data-tab="ouvidoria" class="nav-trigger px-5 py-3 rounded-xl bg-cmeGreen-600/80 hover:bg-cmeGreen-600 text-white font-semibold text-sm border border-emerald-300/30 transition cursor-pointer">
+                Falar com a Ouvidoria
+              </button>
+            </div>
+          </div>
+
+          <div class="lg:col-span-5">
+            <div class="rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20 p-5 space-y-4">
+              <div class="flex items-center justify-between border-b border-white/15 pb-3">
+                <span class="text-xs uppercase tracking-wider font-bold text-emerald-200">Acesso Rápido</span>
+                <span class="text-xs px-2 py-0.5 rounded bg-emerald-400/20 text-emerald-100 font-semibold">Base Legal Oficial</span>
+              </div>
+              <ul class="space-y-2.5 text-sm">
+                <li>
+                  <button type="button" data-tab="legislacao" class="nav-trigger w-full flex items-center justify-between p-2.5 rounded-xl bg-white/10 hover:bg-white/20 transition text-left cursor-pointer">
+                    <span class="font-medium">Lei nº 297/2003 • Lei nº 367/2009 • Regimento Interno</span>
+                    <span class="text-emerald-200 font-bold">→</span>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" data-tab="conselho" class="nav-trigger w-full flex items-center justify-between p-2.5 rounded-xl bg-white/10 hover:bg-white/20 transition text-left cursor-pointer">
+                    <span class="font-medium">Composição Legal (7 Membros) e Comissões Permanentes</span>
+                    <span class="text-emerald-200 font-bold">→</span>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" data-tab="servicos" class="nav-trigger w-full flex items-center justify-between p-2.5 rounded-xl bg-white/10 hover:bg-white/20 transition text-left cursor-pointer">
+                    <span class="font-medium">Autorização, PPP e Regimento Escolar</span>
+                    <span class="text-emerald-200 font-bold">→</span>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" data-tab="admin" class="nav-trigger w-full flex items-center justify-between p-2.5 rounded-xl bg-white/10 hover:bg-white/20 transition text-left cursor-pointer">
+                    <span class="font-medium">Publicar Atos e Gerir Protocolos</span>
+                    <span class="text-emerald-200 font-bold">→</span>
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Summary Indicators -->
+      <div id="home-kpis" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5"></div>
+
+      <!-- Main Grid: News + Agenda & Institutional Articulation -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <div class="lg:col-span-7 bg-white hc-card rounded-2xl border border-slate-200 p-5 sm:p-6 shadow-sm space-y-4">
+          <div class="flex items-center justify-between gap-2 border-b border-slate-100 pb-3">
+            <div>
+              <span class="text-xs font-bold uppercase tracking-wider text-cmeGreen-700">Comunicação Oficial</span>
+              <h3 class="text-lg font-bold text-slate-900">Destaques, Comunicados e Convocações</h3>
+            </div>
+            <button type="button" data-tab="noticias" class="nav-trigger text-sm font-semibold text-cmeBlue-700 hover:underline cursor-pointer">
+              Ver todas →
+            </button>
+          </div>
+          <div id="home-news-list" class="space-y-3.5"></div>
+        </div>
+
+        <div class="lg:col-span-5 space-y-6">
+          <div class="bg-white hc-card rounded-2xl border border-slate-200 p-5 sm:p-6 shadow-sm space-y-4">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+              <div>
+                <span class="text-xs font-bold uppercase tracking-wider text-cmeBlue-700">Calendário</span>
+                <h3 class="text-lg font-bold text-slate-900">Próximas Reuniões e Sessões</h3>
+              </div>
+              <span class="px-2.5 py-1 rounded-lg bg-cmeBlue-50 text-cmeBlue-800 text-xs font-semibold">Plenário</span>
+            </div>
+            <div id="home-agenda-list" class="space-y-3"></div>
+          </div>
+
+          <div class="bg-gradient-to-br from-cmeBlue-50 to-cmeGreen-50 hc-card rounded-2xl border border-cmeBlue-100 p-5 sm:p-6 space-y-3.5">
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-cmeGreen-700"></span>
+              <h3 class="text-base font-bold text-slate-900">Articulação Institucional e Controle Social</h3>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-700 hc-muted leading-relaxed">
+              Conforme a Lei nº 297/2003, a Lei nº 367/2009 e o Regimento Interno, o CME de Juruá-AM articula-se com os órgãos e representações do município:
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs">
+              <div class="p-3 rounded-xl bg-white border border-slate-200/80">
+                <p class="font-bold text-cmeBlue-800">SEMED Juruá-AM</p>
+                <p class="text-slate-600 mt-0.5">Secretaria Municipal de Educação, Cultura, Desporto e Lazer (Art. 6º, I — Lei 367/2009).</p>
+              </div>
+              <div class="p-3 rounded-xl bg-white border border-slate-200/80">
+                <p class="font-bold text-cmeGreen-800">CACS / FUNDEB</p>
+                <p class="text-slate-600 mt-0.5">Conselho de Acompanhamento e Controle Social do FUNDEB (Art. 6º, III — Lei 367/2009).</p>
+              </div>
+              <div class="p-3 rounded-xl bg-white border border-slate-200/80">
+                <p class="font-bold text-cmeBlue-800">APMC e Sindicato dos Professores</p>
+                <p class="text-slate-600 mt-0.5">APMC das Escolas Municipais (II) e Sindicato dos Professores (VI — Lei 367/2009).</p>
+              </div>
+              <div class="p-3 rounded-xl bg-white border border-slate-200/80">
+                <p class="font-bold text-cmeGreen-800">SEDUC-AM, Conselho Tutelar e SEMAS</p>
+                <p class="text-slate-600 mt-0.5">Secretaria Estadual de Educação (IV), Conselho Tutelar (V) e Ação Social (VII).</p>
+              </div>
+            </div>
+            <button type="button" data-tab="controle" class="nav-trigger w-full py-2.5 rounded-xl bg-cmeBlue-700 hover:bg-cmeBlue-800 text-white text-xs sm:text-sm font-semibold transition cursor-pointer">
+              Acessar Painel de Controle Social e Monitoramento
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 2. O CONSELHO ==================== -->
+    <section id="section-conselho" class="page-section hidden space-y-8">
+      <div class="bg-white hc-card rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-6">
+        <div class="border-b border-slate-100 pb-4">
+          <span class="text-xs font-bold uppercase tracking-wider text-cmeGreen-700">Institucional</span>
+          <h2 class="text-2xl font-extrabold text-slate-900 mt-1">Sobre o Conselho Municipal de Educação de Juruá-AM</h2>
+          <p class="text-sm text-slate-600 hc-muted mt-1">
+            Órgão integrante do Sistema Municipal de Ensino, criado pela Lei Municipal nº 297, de 16 de abril de 2003, com composição e mandatos alterados pela Lei Municipal nº 367, de 16 de novembro de 2009, e disciplinado pelo Regimento Interno aprovado em 19 de abril de 2011.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+          <div class="p-5 rounded-2xl bg-cmeGreen-50/70 border border-cmeGreen-100 space-y-2">
+            <h3 class="font-bold text-cmeGreen-900 text-base">Natureza e Princípios</h3>
+            <p class="text-sm text-slate-700 leading-relaxed">
+              Órgão que compõe o Sistema Municipal de Ensino, trazendo na sua natureza o princípio da participação e da representatividade da comunidade na gestão da educação, conforme o art. 206 da Constituição Federal (Lei nº 297/2003, art. 1º), dotado de autonomia administrativa e vinculado à SEMED (Regimento Interno, art. 1º).
+            </p>
+          </div>
+          <div class="p-5 rounded-2xl bg-cmeBlue-50/70 border border-cmeBlue-100 space-y-2">
+            <h3 class="font-bold text-cmeBlue-900 text-base">Funções e Competências</h3>
+            <p class="text-sm text-slate-700 leading-relaxed">
+              Exerce funções <strong>normativa, consultiva, deliberativa e fiscalizadora</strong> (Lei nº 297/2003, art. 2º): normas para criação, autorização e credenciamento de escolas e regimentos escolares; análise e aprovação de PPP e alterações curriculares; pareceres sobre o PME, programas e titularização/aperfeiçoamento docente (Lei nº 297/2003, arts. 3º–4º; Regimento Interno, art. 4º).
+            </p>
+          </div>
+          <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+            <h3 class="font-bold text-slate-900 text-base">Regras de Funcionamento e Mandato</h3>
+            <ul class="text-sm text-slate-700 space-y-1.5 list-disc list-inside">
+              <li><strong>7 membros titulares</strong> e igual número de suplentes indicados pelas bases e nomeados pelo Prefeito (Lei nº 367/2009, art. 6º; Regimento, art. 2º).</li>
+              <li><strong>Mandato de 3 anos</strong>, permitida recondução por mais 3 anos com anuência das bases (Lei nº 367/2009, art. 8º; Regimento, art. 29).</li>
+              <li><strong>Reuniões ordinárias mensais</strong>; quórum de abertura de metade + 1 e quórum de deliberação/aprovação de <strong>2/3 dos membros</strong> (Lei nº 297/2003, art. 13; Regimento, arts. 16–18).</li>
+              <li><strong>Residência obrigatória</strong> no Município de Juruá (Regimento Interno, art. 39).</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Thematic Commissions per Regimento Interno Art. 9º -->
+        <div class="space-y-4 pt-2">
+          <h3 class="text-lg font-bold text-slate-900">Comissões Temáticas Permanentes (Regimento Interno — Art. 9º)</h3>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="p-4 rounded-xl border border-slate-200 bg-white hc-card space-y-1.5">
+              <span class="inline-block px-2 py-0.5 rounded text-xs font-bold bg-cmeGreen-100 text-cmeGreen-800">Art. 9º, I</span>
+              <h4 class="font-bold text-slate-900 text-sm">Comissão de Educação Infantil e Ensino Fundamental</h4>
+              <p class="text-xs text-slate-600 hc-muted leading-relaxed">
+                Apreciação e deliberação de matérias e processos referentes à Educação Infantil e ao Ensino Fundamental, emitindo pareceres para subsidiar o Plenário (arts. 8º e 9º, I).
+              </p>
+            </div>
+            <div class="p-4 rounded-xl border border-slate-200 bg-white hc-card space-y-1.5">
+              <span class="inline-block px-2 py-0.5 rounded text-xs font-bold bg-cmeBlue-100 text-cmeBlue-800">Art. 9º, II</span>
+              <h4 class="font-bold text-slate-900 text-sm">Comissão de Educação de Jovens e Adultos e Educação Indígena</h4>
+              <p class="text-xs text-slate-600 hc-muted leading-relaxed">
+                Análise de normas, propostas pedagógicas e processos relativos à EJA e à Educação Indígena no âmbito do Sistema Municipal de Ensino (arts. 8º e 9º, II).
+              </p>
+            </div>
+            <div class="p-4 rounded-xl border border-slate-200 bg-white hc-card space-y-1.5">
+              <span class="inline-block px-2 py-0.5 rounded text-xs font-bold bg-emerald-100 text-emerald-900">Art. 9º, III</span>
+              <h4 class="font-bold text-slate-900 text-sm">Comissão de Legislação e Normas</h4>
+              <p class="text-xs text-slate-600 hc-muted leading-relaxed">
+                Exame de regimentos escolares, normas complementares, autorização/credenciamento de estabelecimentos e matérias normativas (arts. 8º e 9º, III).
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Statutory Composition (Lei nº 367/2009, Art. 6º & Regimento Interno, Art. 2º) -->
+      <div class="bg-white hc-card rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-5">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-100 pb-4">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-cmeBlue-700">Lei nº 367/2009 (Art. 6º) • Regimento Interno (Art. 2º)</span>
+            <h3 class="text-xl font-bold text-slate-900">Composição Legal do Plenário (7 Membros) e Estrutura Organizacional</h3>
+            <p class="text-xs text-slate-600 hc-muted mt-0.5">
+              Estrutura organizacional (Regimento, art. 3º): Plenário (deliberação superior), Presidência (direção superior — mandato de 3 anos, art. 32), Comissões (deliberação setorial — presidência com mandato de 2 anos, art. 35) e Secretaria Executiva (apoio administrativo).
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-2" id="council-filter-bar">
+            <button type="button" data-segment="Todos" class="council-filter-btn px-3 py-1.5 rounded-lg text-xs font-bold bg-cmeBlue-700 text-white cursor-pointer">Todos</button>
+            <button type="button" data-segment="Poder Público" class="council-filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 cursor-pointer">Poder Público</button>
+            <button type="button" data-segment="Magistério" class="council-filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 cursor-pointer">Magistério</button>
+            <button type="button" data-segment="Pais/Responsáveis" class="council-filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 cursor-pointer">Pais/Responsáveis</button>
+            <button type="button" data-segment="Sociedade Civil" class="council-filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 cursor-pointer">Sociedade Civil</button>
+          </div>
+        </div>
+        <div id="council-members-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+      </div>
+    </section>
+
+    <!-- ==================== 3. LEGISLAÇÃO E ATOS NORMATIVOS ==================== -->
+    <section id="section-legislacao" class="page-section hidden space-y-6">
+      <div class="bg-white hc-card rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-6">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 pb-4">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-cmeGreen-700">Acervo Normativo</span>
+            <h2 class="text-2xl font-extrabold text-slate-900 mt-1">Legislação, Resoluções, Pareceres e Atas</h2>
+            <p class="text-sm text-slate-600 hc-muted">
+              Pesquise atos oficiais do CME de Juruá-AM, visualize a íntegra/ementa e gere cópia para impressão ou arquivo.
+            </p>
+          </div>
+          <span id="acts-count-badge" class="px-3.5 py-1.5 rounded-xl bg-cmeBlue-50 text-cmeBlue-800 text-xs font-bold border border-cmeBlue-100 self-start">
+            0 atos listados
+          </span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-3.5 bg-slate-50 p-4 rounded-2xl border border-slate-200/80">
+          <div class="md:col-span-6">
+            <label for="acts-search" class="block text-xs font-bold text-slate-700 mb-1">Buscar por palavra-chave, número ou ementa</label>
+            <input id="acts-search" type="search" placeholder="Ex.: Lei 297/2003, Lei 367/2009, Regimento Interno, 7 membros..."
+              class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white text-sm text-slate-900 focus:border-cmeBlue-600" />
+          </div>
+          <div class="md:col-span-3">
+            <label for="acts-type-filter" class="block text-xs font-bold text-slate-700 mb-1">Tipo de Ato</label>
+            <select id="acts-type-filter" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white text-sm text-slate-900">
+              <option value="Todos">Todos os tipos</option>
+              <option value="Lei Municipal">Lei Municipal</option>
+              <option value="Regimento Interno">Regimento Interno</option>
+              <option value="Resolução">Resolução</option>
+              <option value="Parecer">Parecer</option>
+              <option value="Ata">Ata</option>
+              <option value="Portaria">Portaria</option>
+              <option value="Edital">Edital</option>
+            </select>
+          </div>
+          <div class="md:col-span-3">
+            <label for="acts-year-filter" class="block text-xs font-bold text-slate-700 mb-1">Ano</label>
+            <select id="acts-year-filter" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white text-sm text-slate-900">
+              <option value="Todos">Todos os anos</option>
+              <option value="2026">2026</option>
+              <option value="2011">2011</option>
+              <option value="2009">2009</option>
+              <option value="2003">2003</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="acts-list" class="space-y-3.5"></div>
+      </div>
+    </section>
+
+    <!-- ==================== 4. SERVIÇOS ÀS ESCOLAS E PROCESSOS ==================== -->
+    <section id="section-servicos" class="page-section hidden space-y-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+        <!-- Left 7 cols: Process Lookup + Guidelines -->
+        <div class="lg:col-span-7 bg-white hc-card rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-6">
+          <div class="border-b border-slate-100 pb-4">
+            <span class="text-xs font-bold uppercase tracking-wider text-cmeBlue-700">Tramitação Documental • Regimento Art. 23</span>
+            <h2 class="text-2xl font-extrabold text-slate-900 mt-1">Consulta de Processos e Protocolos Escolares</h2>
+            <p class="text-sm text-slate-600 hc-muted">
+              Acompanhe o andamento de pedidos de autorização, aprovação de PPP, regimento escolar e regularização de unidades em Juruá-AM.
+            </p>
+          </div>
+
+          <form id="process-search-form" class="flex flex-col sm:flex-row gap-2.5">
+            <input id="process-query" type="search" placeholder="Protocolo ou escola (ex.: CME-2026/0001 ou Escola Municipal São José)"
+              class="flex-1 px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white text-sm text-slate-900" />
+            <button type="submit" class="px-4 py-2.5 rounded-xl bg-cmeBlue-700 hover:bg-cmeBlue-800 text-white text-sm font-bold cursor-pointer">
+              Consultar
+            </button>
+            <button type="button" id="btn-show-all-processes" class="px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 text-sm font-semibold cursor-pointer">
+              Todos
+            </button>
+          </form>
+
+          <div id="process-results" class="space-y-3.5"></div>
+
+          <div class="space-y-2.5 text-sm pt-2 border-t border-slate-100">
+            <h3 class="font-bold text-slate-900 text-base">Orientações para Escolas de Juruá-AM</h3>
+            <div class="p-4 rounded-xl border border-slate-200 bg-slate-50/70">
+              <h4 class="font-bold text-cmeBlue-800">1. Aprovação ou Revisão de Projeto Político-Pedagógico (PPP)</h4>
+              <p class="text-slate-600 mt-1">
+                Compete ao CME analisar e aprovar os Projetos Políticos Pedagógicos e alterações curriculares dos estabelecimentos do Sistema Municipal (Regimento Interno, art. 4º, VI).
+              </p>
+            </div>
+            <div class="p-4 rounded-xl border border-slate-200 bg-slate-50/70">
+              <h4 class="font-bold text-cmeGreen-800">2. Regimento Escolar e Grade Diversificada</h4>
+              <p class="text-slate-600 mt-1">
+                O CME estabelece normas para elaboração de regimentos escolares (Lei nº 297/2003, art. 3º, I), orienta sua elaboração/alteração e fixa a grade diversificada do currículo (Regimento Interno, art. 4º, III–IV).
+              </p>
+            </div>
+            <div class="p-4 rounded-xl border border-slate-200 bg-slate-50/70">
+              <h4 class="font-bold text-cmeBlue-800">3. Autorização, Credenciamento e Tramitação (Regimento Art. 23)</h4>
+              <p class="text-slate-600 mt-1">
+                Após encaminhamento da Presidência às Comissões, o relator tem até <strong>20 dias úteis</strong> para parecer (assinado por todos os membros) e o Plenário tem até <strong>30 dias úteis</strong> para deliberação por maioria de votos (Regimento Interno, arts. 23–24).
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right 5 cols: Checklist & Template -->
+        <div class="lg:col-span-5 bg-white hc-card rounded-2xl border border-slate-200 p-6 shadow-sm space-y-4">
+          <span class="text-xs font-bold uppercase tracking-wider text-cmeBlue-700">Preparação de Protocolo</span>
+          <h3 class="text-xl font-bold text-slate-900">Checklist de Instrução Processual</h3>
+          <p class="text-xs text-slate-600 hc-muted">
+            Marque os itens reunidos pela unidade escolar antes de protocolar junto à Secretaria Executiva do CME:
+          </p>
+          <div id="checklist-items" class="space-y-2.5 text-sm"></div>
+          <div class="pt-2 border-t border-slate-100 flex flex-wrap items-center justify-between gap-2">
+            <span id="checklist-progress" class="text-xs font-bold text-cmeGreen-800">0 de 5 itens conferidos</span>
+            <button type="button" id="btn-copy-template" class="px-3.5 py-2 rounded-xl bg-cmeGreen-700 hover:bg-cmeGreen-800 text-white text-xs font-bold transition cursor-pointer">
+              Copiar Modelo de Requerimento
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Schools Registry: PPPs & Regimentos Escolares -->
+      <div class="bg-white hc-card rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-5">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-100 pb-4">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-cmeGreen-700">Rede Municipal de Juruá-AM</span>
+            <h3 class="text-xl font-extrabold text-slate-900 mt-1">Escolas, PPPs e Regimentos Escolares</h3>
+            <p class="text-sm text-slate-600 hc-muted">
+              Consulta de unidades escolares da rede municipal, ato de aprovação (Parecer/Resolução) e acesso direto aos documentos PDF/links.
+            </p>
+          </div>
+          <div class="flex flex-wrap items-center gap-2.5">
+            <select id="schools-approval-filter" aria-label="Filtrar escolas por situação de aprovação"
+              class="px-3.5 py-2 rounded-xl border border-slate-300 bg-white text-xs sm:text-sm font-semibold text-slate-800">
+              <option value="Todos">Todas as situações</option>
+              <option value="Aprovado">Aprovado pelo CME</option>
+              <option value="Em Análise">Em Análise</option>
+              <option value="Cadastrada">Cadastrada</option>
+            </select>
+            <span id="schools-count-badge" class="px-3 py-1.5 rounded-xl bg-cmeGreen-50 text-cmeGreen-800 text-xs font-bold border border-cmeGreen-200">
+              0 escolas
+            </span>
+          </div>
+        </div>
+        <div id="schools-directory-list" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+      </div>
+    </section>
+
+    <!-- ==================== 5. CONTROLE SOCIAL E MONITORAMENTO ==================== -->
+    <section id="section-controle" class="page-section hidden space-y-6">
+      <div class="bg-white hc-card rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-6">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-100 pb-4">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-cmeGreen-700">Transparência e Acompanhamento • Lei 297/2003 Art. 3º, X &amp; Art. 16</span>
+            <h2 class="text-2xl font-extrabold text-slate-900 mt-1">Controle Social e Monitoramento Educacional — Juruá-AM</h2>
+            <p class="text-sm text-slate-600 hc-muted">
+              Acompanhamento da aplicação dos recursos destinados à educação (Lei nº 297/2003, art. 3º, X) e integração com SEMED, CACS/FUNDEB, APMC, Conselho Tutelar e demais conselhos municipais (art. 16).
+            </p>
+          </div>
+          <select id="monitoring-axis-filter" class="px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white text-sm font-semibold text-slate-800 self-start">
+            <option value="Todos">Todos os eixos</option>
+            <option value="Gestão Escolar">Gestão Escolar</option>
+            <option value="Frequência e Diário">Frequência e Diário</option>
+            <option value="Infraestrutura">Infraestrutura</option>
+            <option value="Metas do PME">Metas do PME</option>
+          </select>
+        </div>
+
+        <div id="monitoring-cards" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4"></div>
+
+        <div class="overflow-x-auto rounded-2xl border border-slate-200">
+          <table class="min-w-full divide-y divide-slate-200 text-sm">
+            <thead class="bg-slate-50 text-left text-xs font-bold uppercase text-slate-600">
+              <tr>
+                <th class="px-4 py-3">Eixo / Indicador</th>
+                <th class="px-4 py-3">Unidade / Abrangência</th>
+                <th class="px-4 py-3">Articulação</th>
+                <th class="px-4 py-3">Situação Atual</th>
+                <th class="px-4 py-3">Observação do CME</th>
+              </tr>
+            </thead>
+            <tbody id="monitoring-table-body" class="divide-y divide-slate-100 bg-white"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 6. NOTÍCIAS E AGENDA ==================== -->
+    <section id="section-noticias" class="page-section hidden space-y-6">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <div class="lg:col-span-8 bg-white hc-card rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-5">
+          <div class="border-b border-slate-100 pb-4">
+            <span class="text-xs font-bold uppercase tracking-wider text-cmeGreen-700">Mural Institucional</span>
+            <h2 class="text-2xl font-extrabold text-slate-900 mt-1">Notícias, Comunicados e Convocações</h2>
+          </div>
+          <div id="news-full-list" class="space-y-4"></div>
+        </div>
+
+        <div class="lg:col-span-4 bg-white hc-card rounded-2xl border border-slate-200 p-6 shadow-sm space-y-5 h-fit">
+          <div class="border-b border-slate-100 pb-4">
+            <span class="text-xs font-bold uppercase tracking-wider text-cmeBlue-700">Cronograma</span>
+            <h3 class="text-xl font-bold text-slate-900 mt-1">Agenda de Reuniões e Audiências</h3>
+          </div>
+          <div id="agenda-full-list" class="space-y-3.5"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 7. OUVIDORIA E CONTATO ==================== -->
+    <section id="section-ouvidoria" class="page-section hidden space-y-6">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <div class="lg:col-span-7 bg-white hc-card rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-5">
+          <div class="border-b border-slate-100 pb-4">
+            <span class="text-xs font-bold uppercase tracking-wider text-cmeGreen-700">Canal Cidadão • Lei 297/2003 Art. 17</span>
+            <h2 class="text-2xl font-extrabold text-slate-900 mt-1">Ouvidoria e Fale com o CME Juruá-AM</h2>
+            <p class="text-sm text-slate-600 hc-muted">
+              Espaço de escuta e consulta à comunidade escolar e sociedade civil (Lei nº 297/2003, art. 17). Ao registrar sua manifestação, você recebe um número de protocolo imediato.
+            </p>
+          </div>
+
+          <form id="ombudsman-form" class="space-y-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label for="omb-category" class="block text-xs font-bold text-slate-700 mb-1">Tipo de Manifestação *</label>
+                <select id="omb-category" required class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white text-sm text-slate-900">
+                  <option value="Dúvida">Dúvida</option>
+                  <option value="Sugestão">Sugestão</option>
+                  <option value="Solicitação de Informação">Solicitação de Informação</option>
+                  <option value="Denúncia/Irregularidade">Denúncia / Irregularidade</option>
+                </select>
+              </div>
+              <div>
+                <label for="omb-name" class="block text-xs font-bold text-slate-700 mb-1">Nome completo (opcional em denúncia)</label>
+                <input id="omb-name" type="text" placeholder="Seu nome ou 'Anônimo'"
+                  class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white text-sm text-slate-900" />
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label for="omb-school" class="block text-xs font-bold text-slate-700 mb-1">Escola / Comunidade (opcional)</label>
+                <input id="omb-school" type="text" placeholder="Ex.: Escola Municipal São José"
+                  class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white text-sm text-slate-900" />
+              </div>
+              <div>
+                <label for="omb-contact" class="block text-xs font-bold text-slate-700 mb-1">Contato / E-mail ou Telefone (opcional)</label>
+                <input id="omb-contact" type="text" placeholder="Para retorno da Secretaria Executiva"
+                  class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white text-sm text-slate-900" />
+              </div>
+            </div>
+
+            <div>
+              <label for="omb-message" class="block text-xs font-bold text-slate-700 mb-1">Mensagem / Descrição *</label>
+              <textarea id="omb-message" rows="4" required placeholder="Descreva sua manifestação com clareza..."
+                class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white text-sm text-slate-900"></textarea>
+            </div>
+
+            <button type="submit" class="px-6 py-3 rounded-xl bg-cmeGreen-700 hover:bg-cmeGreen-800 text-white font-bold text-sm shadow-sm transition cursor-pointer">
+              Registrar Manifestação e Gerar Protocolo
+            </button>
+          </form>
+
+          <div id="ombudsman-receipt" class="hidden p-4 rounded-2xl bg-cmeGreen-50 border border-cmeGreen-300 space-y-2">
+            <p class="text-xs font-bold uppercase text-cmeGreen-800">Protocolo Gerado com Sucesso</p>
+            <p class="text-lg font-extrabold text-slate-900" id="omb-receipt-code"></p>
+            <p class="text-xs text-slate-700" id="omb-receipt-summary"></p>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5 space-y-6">
+          <div class="bg-white hc-card rounded-2xl border border-slate-200 p-6 shadow-sm space-y-4">
+            <h3 class="text-lg font-bold text-slate-900">Atendimento Institucional — Juruá-AM</h3>
+            <ul class="space-y-3 text-sm text-slate-700">
+              <li class="flex items-start gap-2.5">
+                <span class="font-bold text-cmeBlue-700 shrink-0">Sede / Secretaria:</span>
+                <span>Prefeitura Municipal de Juruá — Rua Francisco de Paula, 98, Centro, Juruá/AM — CEP 69.520-000</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="font-bold text-cmeBlue-700 shrink-0">Horário:</span>
+                <span>Segunda a sexta-feira, das 08h00 às 14h00 (atendimento presencial e protocolo)</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="font-bold text-cmeBlue-700 shrink-0">E-mail Oficial:</span>
+                <span>cme.jurua.am@educacao.gov.br</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="font-bold text-cmeBlue-700 shrink-0">Sessões Plenárias:</span>
+                <span>Reuniões ordinárias mensais (Lei nº 297/2003, art. 13; Regimento, art. 16)</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="bg-white hc-card rounded-2xl border border-slate-200 p-6 shadow-sm space-y-4">
+            <h3 class="text-lg font-bold text-slate-900">Consultar Protocolo da Ouvidoria</h3>
+            <div class="flex gap-2">
+              <input id="omb-lookup-input" type="text" placeholder="Ex.: OUV-CME-2026-1042"
+                class="flex-1 px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white text-sm text-slate-900" />
+              <button type="button" id="btn-omb-lookup" class="px-4 py-2.5 rounded-xl bg-cmeBlue-700 hover:bg-cmeBlue-800 text-white text-sm font-bold cursor-pointer">
+                Buscar
+              </button>
+            </div>
+            <div id="omb-lookup-result" class="text-xs text-slate-600 space-y-2"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 8. PAINEL ADMINISTRATIVO ==================== -->
+    <section id="section-admin" class="page-section hidden space-y-6">
+      <div class="bg-white hc-card rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-6">
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 border-b border-slate-100 pb-4">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-cmeGreen-700">Gestão da Secretaria Executiva</span>
+            <h2 class="text-2xl font-extrabold text-slate-900 mt-1">Painel Administrativo do CME Juruá-AM</h2>
+            <p class="text-sm text-slate-600 hc-muted">
+              Publique atos normativos, registre escolas com PPP/Regimento, atualize processos, divulgue notícias e gere o arquivo <code>index.html</code> atualizado para o GitHub Pages.
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <button type="button" id="btn-generate-updated-html" class="px-4 py-2 rounded-xl bg-cmeGreen-700 hover:bg-cmeGreen-800 text-white text-xs font-bold shadow-xs cursor-pointer">
+              Gerar index.html Atualizado
+            </button>
+            <button type="button" id="btn-export-json" class="px-3.5 py-2 rounded-xl bg-cmeBlue-50 text-cmeBlue-800 hover:bg-cmeBlue-100 border border-cmeBlue-200 text-xs font-bold cursor-pointer">
+              Exportar JSON
+            </button>
+            <button type="button" id="btn-export-csv" class="px-3.5 py-2 rounded-xl bg-cmeBlue-50 text-cmeBlue-800 hover:bg-cmeBlue-100 border border-cmeBlue-200 text-xs font-bold cursor-pointer">
+              Exportar Atos (CSV)
+            </button>
+            <label class="px-3.5 py-2 rounded-xl bg-slate-100 text-slate-800 hover:bg-slate-200 border border-slate-300 text-xs font-bold cursor-pointer">
+              <span>Importar JSON</span>
+              <input id="input-import-json" type="file" accept=".json,application/json" class="hidden" />
+            </label>
+            <button type="button" id="btn-reset-demo" class="px-3.5 py-2 rounded-xl bg-amber-50 text-amber-900 hover:bg-amber-100 border border-amber-300 text-xs font-bold cursor-pointer">
+              Restaurar Dados Padrão de Juruá-AM
+            </button>
+          </div>
+        </div>
+
+        <div class="p-4 rounded-2xl bg-cmeBlue-50/80 border border-cmeBlue-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
+          <div class="space-y-0.5">
+            <p class="font-bold text-cmeBlue-900">Publicação contínua no GitHub Pages (cme-jurua-am)</p>
+            <p class="text-slate-700 hc-muted">
+              Ao cadastrar escolas, PPPs, Regimentos, Resoluções, Pareceres ou Atas, clique em <strong>Gerar index.html Atualizado</strong> para baixar o arquivo pronto com todos os dados embutidos e enviá-lo ao repositório do GitHub.
+            </p>
+          </div>
+          <span class="px-3 py-1.5 rounded-xl bg-white border border-cmeBlue-200 text-cmeBlue-900 font-bold shrink-0">
+            Compatível com PDF local ou URL
+          </span>
+        </div>
+
+        <!-- Official Logo Preview & Optional Upload/Override -->
+        <div class="p-4 sm:p-5 rounded-2xl border border-cmeGreen-200 bg-gradient-to-r from-cmeGreen-50/80 via-white to-cmeBlue-50/80 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div class="flex items-center gap-4">
+            <div class="logo-tile w-20 h-20 rounded-2xl bg-white p-1.5 border border-slate-200 shadow-xs shrink-0 flex items-center justify-center">
+              <img
+                src=""
+                data-cme-logo
+                alt="Pré-visualização da logo oficial do CME Juruá-AM"
+                class="w-full h-full object-contain"
+              />
+            </div>
+            <div class="space-y-0.5">
+              <p class="text-xs font-bold uppercase tracking-wider text-cmeGreen-800">Identidade Visual Oficial</p>
+              <h3 class="text-sm sm:text-base font-bold text-slate-900">Emblema Oficial CME Juruá-AM</h3>
+              <p class="text-xs text-slate-600 hc-muted">
+                Incorporado diretamente ao portal (cabeçalho, rodapé e favicon) para funcionar offline sem depender de arquivo externo.
+              </p>
+            </div>
+          </div>
+          <div class="flex flex-wrap items-center gap-2">
+            <label class="px-3.5 py-2 rounded-xl bg-cmeGreen-700 hover:bg-cmeGreen-800 text-white text-xs font-bold cursor-pointer transition">
+              <span>Trocar / Pré-visualizar Logo</span>
+              <input id="input-logo-upload" type="file" accept="image/png,image/jpeg,image/webp,image/svg+xml" class="hidden" />
+            </label>
+            <button type="button" id="btn-reset-logo" class="px-3.5 py-2 rounded-xl bg-white hover:bg-slate-100 text-slate-800 border border-slate-300 text-xs font-bold cursor-pointer transition">
+              Restaurar Emblema Oficial
+            </button>
+          </div>
+        </div>
+
+        <!-- Admin Forms Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <!-- (a) Publish Act -->
+          <form id="admin-act-form" class="p-5 rounded-2xl border border-slate-200 bg-slate-50/60 space-y-3.5">
+            <h3 class="font-bold text-slate-900 text-base flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-cmeGreen-700"></span>
+              <span>(a) Publicar Resolução / Parecer / Ata / Lei / Regimento</span>
+            </h3>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              <div>
+                <label for="adm-act-type" class="block text-xs font-semibold text-slate-700 mb-1">Tipo</label>
+                <select id="adm-act-type" class="w-full px-3 py-2 rounded-xl border border-slate-300 bg-white text-sm">
+                  <option value="Resolução">Resolução</option>
+                  <option value="Parecer">Parecer</option>
+                  <option value="Ata">Ata</option>
+                  <option value="Lei Municipal">Lei Municipal</option>
+                  <option value="Regimento Interno">Regimento Interno</option>
+                  <option value="Portaria">Portaria</option>
+                  <option value="Edital">Edital</option>
+                </select>
+              </div>
+              <div>
+                <label for="adm-act-number" class="block text-xs font-semibold text-slate-700 mb-1">Número/Ano</label>
+                <input id="adm-act-number" type="text" required placeholder="Ex.: 001/2026"
+                  class="w-full px-3 py-2 rounded-xl border border-slate-300 bg-white text-sm" />
+              </div>
+              <div>
+                <label for="adm-act-date" class="block text-xs font-semibold text-slate-700 mb-1">Data</label>
+                <input id="adm-act-date" type="date" required
+                  class="w-full px-3 py-2 rounded-xl border border-slate-300 bg-white text-sm" />
+              </div>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div>
+                <label for="adm-act-category" class="block text-xs font-semibold text-slate-700 mb-1">Eixo / Categoria Institucional</label>
+                <select id="adm-act-category" class="w-full px-3 py-2 rounded-xl border border-slate-300 bg-white text-sm">
+                  <option value="Currículo Municipal — Educação Infantil">Currículo Municipal — Educação Infantil</option>
+                  <option value="Currículo Municipal — Ensino Fundamental">Currículo Municipal — Ensino Fundamental</option>
+                  <option value="Currículo Municipal — EJA">Currículo Municipal — EJA</option>
+                  <option value="Currículo Municipal — Proposta Municipal">Currículo Municipal — Proposta Municipal</option>
+                  <option value="Criação e Organização do CME">Criação e Organização do CME</option>
+                  <option value="Atas de Reunião">Atas de Reunião</option>
+                  <option value="Normas Gerais">Normas Gerais</option>
+                </select>
+              </div>
+              <div>
+                <label for="adm-act-approval-ref" class="block text-xs font-semibold text-slate-700 mb-1">Ato de Referência / Aprovação</label>
+                <input id="adm-act-approval-ref" type="text" placeholder="Ex.: Resolução CME nº 001/2026"
+                  class="w-full px-3 py-2 rounded-xl border border-slate-300 bg-white text-sm" />
+              </div>
+            </div>
+            <div>
+              <label for="adm-act-title" class="block text-xs font-semibold text-slate-700 mb-1">Título / Ementa Resumida</label>
+              <input id="adm-act-title" type="text" required placeholder="Ex.: Aprovação do Referencial Curricular Municipal..."
+                class="w-full px-3 py-2 rounded-xl border border-slate-300 bg-white text-sm" />
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              <div>
+                <label for="adm-act-rapporteur" class="block text-xs font-semibold text-slate-700 mb-1">Relator(a) / Responsável</label>
+                <input id="adm-act-rapporteur" type="text" required placeholder="Ex.: Presidência CME"
+                  class="w-full px-3 py-2 rounded-xl border border-slate-300 bg-white text-sm" />
+              </div>
+              <div>
+                <label for="adm-act-status" class="block text-xs font-semibold text-slate-700 mb-1">Situação</label>
+                <select id="adm-act-status" class="w-full px-3 py-2 rounded-xl border border-slate-300 bg-white text-sm">
+                  <option value="Vigente">Vigente</option>
+                  <option value="Aprovado">Aprovado</option>
+                  <option value="Em Consulta">Em Consulta</option>
+                  <option value="Revogado">Revogado</option>
+                </select>
+              </div>
+              <div>
+                <label for="adm-act-doc-url" class="block text-xs font-semibold text-slate-700 mb-1">Link / Caminho do PDF</label>
+                <input id="adm-act-doc-url" type="text" placeholder="./documentos/ato.pdf ou https://..."
+                  class="w-full px-3 py-2 rounded-xl border border-slate-300 bg-white text-sm" />
+              </div>
+            </div>
+            <div>
+              <label for="adm-act-body" class="block text-xs font-semibold text-slate-700 mb-1">Texto / Ementa Integral</label>
+              <textarea id="adm-act-body" rows="3" required placeholder="Redija o texto normativo, ementa ou resumo deliberado..."
+                class="w-full px-3 py-2 rounded-xl border border-slate-300 bg-white text-sm"></textarea>
+            </div>
+            <button type="submit" class="w-full py-2.5 rounded-xl bg-cmeGreen-700 hover:bg-cmeGreen-800 text-white text-sm font-bold cursor-pointer">
+              Publicar Ato / Documento Oficial
+            </button>
+          </form>
+
+          <!-- (b) Register / Update School (PPP & Regimento Escolar) -->
+          <form id="admin-school-form" class="p-5 rounded-2xl border border-slate-200 bg-slate-50/60 space-y-3.5">
+            <h3 class="font-bold text-slate-900 text-base flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-emerald-700"></span>
+              <span>(b) Cadastrar / Atualizar Escola (PPP e Regimento)</span>
+            </h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div>
+                <label for="adm-school-name" class="block text-xs font-semibold text-slate-700 mb-1">Nome da Unidade Escolar *</label>
+                <input id="adm-school-name" type="text" required placeholder="Ex.: Escola Municipal São José"
+                  class="w-full px-3 py-2 rounded-xl border border-slate-300 bg-white text-sm" />
+              </div>
+              <div>
+                <label for="adm-school-zone" class="block text-xs font-semibold text-slate-700 mb-1">Localidade / Zona</label>
+                <input id="adm-school-zone" type="text" placeholder="Ex.: Juruá-AM"
+                  class="w-full px-3 py-2 rounded-xl border border-slate-300 bg-white text-sm" />
+              </div>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div>
+                <label for="adm-school-modalities" class="block text-xs font-semibold text-slate-700 mb-1">Etapas / Modalidades</label>
+                <input id="adm-school-modalities" type="text" placeholder="Ex.: Educação Infantil, Ensino Fundamental e EJA"
+                  class="w-full px-3 py-2 rounded-xl border border-slate-300 bg-white text-sm" />
+              </div>
+              <div>
+                <label for="adm-school-status" class="block text-xs font-semibold text-slate-700 mb-1">Situação de Aprovação</label>
+                <select id="adm-school-status" class="w-full px-3 py-2 rounded-xl border border-slate-300 bg-white text-sm">
+                  <option value="Aprovado">Aprovado pelo CME</option>
+                  <option value="Em Análise">Em Análise</option>
+                  <option value="Cadastrada">Cadastrada</option>
+                </select>
+              </div>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div>
+                <label for="adm-school-approval-ref" class="block text-xs font-semibold text-slate-700 mb-1">Ato de Aprovação (Parecer / Resolução)</label>
+                <input id="adm-school-approval-ref" type="text" placeholder="Ex.: Parecer CME nº 005/2026"
+                  class="w-full px-3 py-2 rounded-xl border border-slate-300 bg-white text-sm" />
+              </div>
+              <div>
+                <label for="adm-school-approval-date" class="block text-xs font-semibold text-slate-700 mb-1">Data da Aprovação</label>
+                <input id="adm-school-approval-date" type="date"
+                  class="w-full px-3 py-2 rounded-xl border border-slate-300 bg-white text-sm" />
+              </div>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div>
+                <label for="adm-school-ppp-url" class="block text-xs font-semibold text-slate-700 mb-1">Link / Arquivo PDF do PPP</label>
+                <input id="adm-school-ppp-url" type="text" placeholder="./documentos/ppp-escola.pdf ou https://..."
+                  class="w-full px-3 py-2 rounded-xl border border-slate-300 bg-white text-sm" />
+              </div>
+              <div>
+                <label for="adm-school-regiment-url" class="block text-xs font-semibold text-slate-700 mb-1">Link / Arquivo PDF do Regimento</label>
+                <input id="adm-school-regiment-url" type="text" placeholder="./documentos/regimento-escola.pdf ou https://..."
+                  class="w-full px-3 py-2 rounded-xl border border-slate-300 bg-white text-sm" />
+              </div>
+            </div>
+            <button type="submit" class="w-full py-2.5 rounded-xl bg-cmeGreen-700 hover:bg-cmeGreen-800 text-white text-sm font-bold cursor-pointer">
+              Salvar Escola / PPP / Regimento
+            </button>
+          </form>
+
+          <!-- (c) Register / Update Process -->
+          <form id="admin-process-form" class="p-5 rounded-2xl border border-slate-200 bg-slate-50/60 space-y-3.5">
+            <h3 class="font-bold text-slate-900 text-base flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-cmeBlue-700"></span>
+              <span>(c) Cadastrar ou Atualizar Processo Escolar</span>
+            </h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div>
+                <label for="adm-proc-code" class="block text-xs font-semibold text-slate-700 mb-1">Protocolo (existente ou novo)</label>
+                <input id="adm-proc-code" type="text" required placeholder="Ex.: CME-2026/0001"
+                  class="w-full px-3 py-2 rounded-xl border border-slate-300 bg-white text-sm" />
+              </div>
+              <div>
+                <label for="adm-proc-status" class="block text-xs font-semibold text-slate-700 mb-1">Status Atual</label>
+                <select id="adm-proc-status" class="w-full px-3 py-2 rounded-xl border border-slate-300 bg-white text-sm">
+                  <option value="Em Análise Técnica">Em Análise Técnica</option>
+                  <option value="Comissão Temática">Comissão Temática</option>
+                  <option value="Diligência / Complementação">Diligência / Complementação</option>
+                  <option value="Aprovado em Plenário">Aprovado em Plenário</option>
+                </select>
+              </div>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div>
+                <label for="adm-proc-school" class="block text-xs font-semibold text-slate-700 mb-1">Unidade Escolar</label>
+                <input id="adm-proc-school" type="text" required placeholder="Ex.: Escola Municipal São José"
+                  class="w-full px-3 py-2 rounded-xl border border-slate-300 bg-white text-sm" />
+              </div>
+              <div>
+                <label for="adm-proc-subject" class="block text-xs font-semibold text-slate-700 mb-1">Assunto</label>
+                <input id="adm-proc-subject" type="text" required placeholder="Ex.: Aprovação de PPP e Regimento"
+                  class="w-full px-3 py-2 rounded-xl border border-slate-300 bg-white text-sm" />
+              </div>
+            </div>
+            <div>
+              <label for="adm-proc-rapporteur" class="block text-xs font-semibold text-slate-700 mb-1">Parecerista / Relator(a)</label>
+              <input id="adm-proc-rapporteur" type="text" required placeholder="Ex.: Comissão de Legislação e Normas"
+                class="w-full px-3 py-2 rounded-xl border border-slate-300 bg-white text-sm" />
+            </div>
+            <div>
+              <label for="adm-proc-note" class="block text-xs font-semibold text-slate-700 mb-1">Novo Marco na Linha do Tempo / Observação</label>
+              <input id="adm-proc-note" type="text" required placeholder="Ex.: Protocolado na Secretaria Executiva do CME"
+                class="w-full px-3 py-2 rounded-xl border border-slate-300 bg-white text-sm" />
+            </div>
+            <button type="submit" class="w-full py-2.5 rounded-xl bg-cmeBlue-700 hover:bg-cmeBlue-800 text-white text-sm font-bold cursor-pointer">
+              Salvar Processo / Registrar Andamento
+            </button>
+          </form>
+
+          <!-- (d) Publish News -->
+          <form id="admin-news-form" class="p-5 rounded-2xl border border-slate-200 bg-slate-50/60 space-y-3.5">
+            <h3 class="font-bold text-slate-900 text-base flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-emerald-600"></span>
+              <span>(d) Publicar Notícia ou Convocação</span>
+            </h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div>
+                <label for="adm-news-tag" class="block text-xs font-semibold text-slate-700 mb-1">Categoria</label>
+                <select id="adm-news-tag" class="w-full px-3 py-2 rounded-xl border border-slate-300 bg-white text-sm">
+                  <option value="Comunicado Oficial">Comunicado Oficial</option>
+                  <option value="Convocação">Convocação</option>
+                  <option value="Formação e Debate">Formação e Debate</option>
+                  <option value="Audiência Pública">Audiência Pública</option>
+                </select>
+              </div>
+              <div>
+                <label for="adm-news-date" class="block text-xs font-semibold text-slate-700 mb-1">Data</label>
+                <input id="adm-news-date" type="date" required
+                  class="w-full px-3 py-2 rounded-xl border border-slate-300 bg-white text-sm" />
+              </div>
+            </div>
+            <div>
+              <label for="adm-news-title" class="block text-xs font-semibold text-slate-700 mb-1">Título</label>
+              <input id="adm-news-title" type="text" required placeholder="Ex.: Convocação para Sessão Ordinária"
+                class="w-full px-3 py-2 rounded-xl border border-slate-300 bg-white text-sm" />
+            </div>
+            <div>
+              <label for="adm-news-body" class="block text-xs font-semibold text-slate-700 mb-1">Conteúdo</label>
+              <textarea id="adm-news-body" rows="3" required placeholder="Texto da notícia ou convocação..."
+                class="w-full px-3 py-2 rounded-xl border border-slate-300 bg-white text-sm"></textarea>
+            </div>
+            <button type="submit" class="w-full py-2.5 rounded-xl bg-cmeGreen-700 hover:bg-cmeGreen-800 text-white text-sm font-bold cursor-pointer">
+              Publicar no Mural
+            </button>
+          </form>
+
+          <!-- (e) Respond Ombudsman -->
+          <div class="p-5 rounded-2xl border border-slate-200 bg-slate-50/60 space-y-3.5 lg:col-span-2">
+            <h3 class="font-bold text-slate-900 text-base flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-amber-600"></span>
+              <span>(e) Responder Manifestações da Ouvidoria</span>
+            </h3>
+            <p class="text-xs text-slate-600">
+              Registre resposta oficial da Secretaria Executiva para protocolos enviados pela comunidade:
+            </p>
+            <div id="admin-ombudsman-list" class="space-y-3 max-h-80 overflow-y-auto pr-1"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal for Full Act / News Reading -->
+  <div id="detail-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-950/60 p-4" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="bg-white hc-card rounded-2xl max-w-2xl w-full max-h-[88vh] overflow-y-auto p-6 shadow-2xl border border-slate-200 space-y-4">
+      <div class="flex items-start justify-between gap-4 border-b border-slate-100 pb-3">
+        <div>
+          <span id="modal-badge" class="inline-block px-2.5 py-0.5 rounded-md text-xs font-bold bg-cmeBlue-100 text-cmeBlue-800 mb-1"></span>
+          <h3 id="modal-title" class="text-lg sm:text-xl font-extrabold text-slate-900"></h3>
+          <p id="modal-meta" class="text-xs text-slate-500 mt-0.5"></p>
+        </div>
+        <button type="button" id="btn-close-modal" aria-label="Fechar janela"
+          class="p-2 rounded-xl hover:bg-slate-100 text-slate-600 font-bold cursor-pointer">
+          ✕
+        </button>
+      </div>
+      <div id="modal-body" class="text-sm text-slate-700 leading-relaxed whitespace-pre-line"></div>
+      <div class="pt-3 border-t border-slate-100 flex flex-wrap justify-end gap-2.5 no-print">
+        <button type="button" id="btn-modal-download" class="px-4 py-2 rounded-xl bg-cmeGreen-700 hover:bg-cmeGreen-800 text-white text-xs font-bold cursor-pointer">
+          Baixar Texto (.TXT)
+        </button>
+        <button type="button" id="btn-modal-print" class="px-4 py-2 rounded-xl bg-cmeBlue-700 hover:bg-cmeBlue-800 text-white text-xs font-bold cursor-pointer">
+          Imprimir / Salvar PDF
+        </button>
+        <button type="button" id="btn-modal-close-footer" class="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold cursor-pointer">
+          Fechar
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-cmeBlue-900 text-sky-100 mt-12 border-t border-cmeBlue-800 no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 grid grid-cols-1 md:grid-cols-3 gap-6 text-sm">
+      <div class="space-y-2 flex items-start gap-3.5">
+        <div class="logo-tile w-16 h-16 rounded-2xl bg-white p-1.5 shrink-0 flex items-center justify-center shadow-sm">
+          <img
+            src=""
+            data-cme-logo
+            alt="Logo oficial do Conselho Municipal de Educação de Juruá-AM"
+            class="w-full h-full object-contain"
+          />
+        </div>
+        <div class="space-y-1">
+          <p class="font-extrabold text-white text-base">CME — Conselho Municipal de Educação</p>
+          <p class="text-sky-200 text-xs leading-relaxed">
+            Prefeitura Municipal de Juruá — Rua Francisco de Paula, 98, Centro, Juruá/AM — CEP 69.520-000. Lei nº 297/2003, Lei nº 367/2009 e Regimento Interno.
+          </p>
+        </div>
+      </div>
+      <div class="space-y-1.5 text-xs">
+        <p class="font-bold text-white uppercase tracking-wider">Navegação Rápida</p>
+        <div class="flex flex-wrap gap-x-4 gap-y-1.5">
+          <button type="button" data-tab="inicio" class="nav-trigger hover:underline cursor-pointer">Início</button>
+          <button type="button" data-tab="conselho" class="nav-trigger hover:underline cursor-pointer">O Conselho</button>
+          <button type="button" data-tab="legislacao" class="nav-trigger hover:underline cursor-pointer">Legislação</button>
+          <button type="button" data-tab="servicos" class="nav-trigger hover:underline cursor-pointer">Processos</button>
+          <button type="button" data-tab="controle" class="nav-trigger hover:underline cursor-pointer">Controle Social</button>
+          <button type="button" data-tab="ouvidoria" class="nav-trigger hover:underline cursor-pointer">Ouvidoria</button>
+        </div>
+      </div>
+      <div class="space-y-1 text-xs text-sky-200">
+        <p class="font-bold text-white uppercase tracking-wider">Transparência e Dados</p>
+        <p>Articulação: SEMED Juruá • CACS/FUNDEB • APMC • Conselho Tutelar</p>
+        <p>Persistência local ativa com suporte a exportação JSON/CSV e geração de index.html.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      "use strict";
+
+      const STORAGE_KEY = "cme_jurua_am_portal_v4";
+      const DARK_MODE_KEY = "cme_jurua_am_dark_mode_v1";
+
+      // Embedded SVG data URI for the official CME Juruá-AM emblem
+      const OFFICIAL_CME_LOGO_DATA_URI =
+        "data:image/svg+xml;charset=utf-8," +
+        encodeURIComponent(`
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 440" width="400" height="440" role="img" aria-label="Conselho Municipal de Educação Juruá-AM">
+          <defs>
+            <radialGradient id="cmeGlow" cx="50%" cy="38%" r="45%">
+              <stop offset="0%" stop-color="#d9f99d"/>
+              <stop offset="52%" stop-color="#84cc16"/>
+              <stop offset="100%" stop-color="#15803d"/>
+            </radialGradient>
+            <linearGradient id="cmeRing" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#65a30d"/>
+              <stop offset="48%" stop-color="#1d4ed8"/>
+              <stop offset="100%" stop-color="#16a34a"/>
+            </linearGradient>
+          </defs>
+          <rect width="400" height="440" rx="36" fill="#ffffff"/>
+          <ellipse cx="200" cy="216" rx="172" ry="194" fill="none" stroke="url(#cmeRing)" stroke-width="14"/>
+          <ellipse cx="200" cy="216" rx="156" ry="178" fill="#ffffff"/>
+          <path d="M 56 206 C 56 104, 120 48, 200 48 C 280 48, 344 104, 344 206 C 322 222, 294 226, 266 220 L 200 198 L 134 220 C 106 226, 78 222, 56 206 Z" fill="url(#cmeGlow)"/>
+          <circle cx="200" cy="96" r="24" fill="#1d4ed8"/>
+          <path d="M 118 112 L 154 148 L 176 138 L 224 138 L 246 148 L 282 112 L 293 123 L 250 168 L 234 162 L 234 214 L 166 214 L 166 162 L 150 168 L 107 123 Z" fill="#1d4ed8"/>
+          <path d="M 74 176 C 118 168, 162 174, 200 194 C 238 174, 282 168, 326 176 L 326 266 C 282 254, 238 256, 200 276 C 162 256, 118 254, 74 266 Z" fill="#ffffff" stroke="#1d4ed8" stroke-width="12" stroke-linejoin="round"/>
+          <path d="M 200 194 L 200 276" stroke="#1d4ed8" stroke-width="10" stroke-linecap="round"/>
+          <path d="M 98 202 C 132 196, 164 200, 186 212" fill="none" stroke="#1d4ed8" stroke-width="6" stroke-linecap="round"/>
+          <path d="M 302 202 C 268 196, 236 200, 214 212" fill="none" stroke="#1d4ed8" stroke-width="6" stroke-linecap="round"/>
+          <path d="M 86 286 Q 200 256 314 286" fill="none" stroke="#65a30d" stroke-width="6" stroke-linecap="round"/>
+          <path d="M 104 298 Q 200 274 296 298" fill="none" stroke="#16a34a" stroke-width="4" stroke-linecap="round"/>
+          <text x="200" y="330" text-anchor="middle" font-family="Plus Jakarta Sans, Inter, Arial, sans-serif" font-weight="800" font-size="30" fill="#15803d" letter-spacing="0.5">CONSELHO</text>
+          <text x="200" y="358" text-anchor="middle" font-family="Plus Jakarta Sans, Inter, Arial, sans-serif" font-weight="800" font-size="27" fill="#15803d" letter-spacing="0.4">MUNICIPAL</text>
+          <text x="200" y="383" text-anchor="middle" font-family="Plus Jakarta Sans, Inter, Arial, sans-serif" font-weight="700" font-size="21" fill="#16a34a" letter-spacing="0.3">DE EDUCAÇÃO</text>
+          <path d="M 88 408 Q 112 394 128 408 Q 108 418 88 408 Z" fill="#16a34a"/>
+          <text x="200" y="414" text-anchor="middle" font-family="Plus Jakarta Sans, Inter, Arial, sans-serif" font-weight="900" font-size="26" fill="#1d4ed8" letter-spacing="0.6">JURUÁ-AM</text>
+          <path d="M 312 408 Q 288 394 272 408 Q 292 418 312 408 Z" fill="#16a34a"/>
+        </svg>
+        `);
+
+      // Official institutional baseline state derived from Lei 297/2003, Lei 367/2009, and Regimento Interno (2011)
+      function getDefaultState() {
+        return {
+          logoUrl: OFFICIAL_CME_LOGO_DATA_URI,
+          kpis: {
+            meetingsInYear: 0,
+            monitoredSchools: 1
+          },
+          schools: [
+            {
+              id: "school-sao-jose",
+              name: "Escola Municipal São José",
+              zone: "Juruá-AM",
+              modalities: "Educação Infantil e Ensino Fundamental",
+              status: "Cadastrada",
+              approvalRef: "",
+              approvalDate: "",
+              pppUrl: "",
+              regimentUrl: ""
+            }
+          ],
+          members: [
+            {
+              id: "mem-1",
+              segment: "Poder Público",
+              name: "Representante da Secretaria Municipal de Educação, Cultura, Desporto e Lazer (Titular / Suplente)",
+              role: "Inciso I — Lei nº 367/2009 (Art. 6º, I) • Regimento Interno (Art. 2º, I)"
+            },
+            {
+              id: "mem-2",
+              segment: "Pais/Responsáveis",
+              name: "Representante da Associação de Pais, Mestres e Comunitários — APMC das Escolas Municipais (Titular / Suplente)",
+              role: "Inciso II — Lei nº 367/2009 (Art. 6º, II) • Regimento Interno (Art. 2º, II)"
+            },
+            {
+              id: "mem-3",
+              segment: "Sociedade Civil",
+              name: "Representante do Conselho de Acompanhamento e Controle Social do FUNDEB (Titular / Suplente)",
+              role: "Inciso III — Lei nº 367/2009 (Art. 6º, III) • Regimento Interno (Art. 2º, III)"
+            },
+            {
+              id: "mem-4",
+              segment: "Poder Público",
+              name: "Representante da Secretaria Estadual de Educação no Município (Titular / Suplente)",
+              role: "Inciso IV — Lei nº 367/2009 (Art. 6º, IV) • Regimento Interno (Art. 2º, IV)"
+            },
+            {
+              id: "mem-5",
+              segment: "Sociedade Civil",
+              name: "Representante do Conselho Tutelar (Titular / Suplente)",
+              role: "Inciso V — Lei nº 367/2009 (Art. 6º, V) • Regimento Interno (Art. 2º, V)"
+            },
+            {
+              id: "mem-6",
+              segment: "Magistério",
+              name: "Representante do Sindicato dos Professores (Titular / Suplente)",
+              role: "Inciso VI — Lei nº 367/2009 (Art. 6º, VI) • Regimento Interno (Art. 2º, VI)"
+            },
+            {
+              id: "mem-7",
+              segment: "Poder Público",
+              name: "Representante da Secretaria Municipal de Trabalho e Ação Social (Titular / Suplente)",
+              role: "Inciso VII — Lei nº 367/2009 (Art. 6º, VII) • Regimento Interno (Art. 2º, VII)"
+            }
+          ],
+          acts: [
+            {
+              id: "act-lei-297-2003",
+              type: "Lei Municipal",
+              number: "297/2003",
+              year: "2003",
+              date: "2003-04-16",
+              category: "Criação e Organização do CME",
+              approvalRef: "Sancionada pelo Prefeito Tabira Ramos Dias Ferreira (16/04/2003)",
+              title: "Dispõe sobre a criação da estrutura funcional do Conselho Municipal de Educação do Município de Juruá e dá outras providências",
+              rapporteur: "Prefeitura Municipal de Juruá — Gabinete do Prefeito",
+              status: "Vigente",
+              docUrl: "",
+              body: "LEI MUNICIPAL Nº 297, DE 16 DE ABRIL DE 2003.\nPrefeitura Municipal de Juruá — Estado do Amazonas (Rua Francisco de Paula, 98 - Centro - Juruá/AM - CEP 69.520-000).\n\n• Art. 1º: Cria o Conselho Municipal de Educação (CME) como órgão integrante do Sistema Municipal de Ensino, regido pelo princípio da participação e representatividade da comunidade na gestão da educação (art. 206 da CF).\n• Art. 2º: Define as funções normativa, consultiva, deliberativa e fiscalizadora sobre os assuntos pertinentes à Educação.\n• Art. 3º–4º: Estabelece competências para normas de criação, autorização e credenciamento de escolas e regimentos escolares; pareceres sobre o PME, programas e titularização/aperfeiçoamento docente; decisão sobre criação, ampliação, desativação e localização de escolas municipais; acompanhamento de políticas e da aplicação dos recursos públicos destinados à educação.\n• Art. 5º–7º: Dispõe sobre composição, indicação de titulares e suplentes pelas bases, nomeação por ato do Prefeito Municipal, eleição do Presidente entre seus pares e competências da Presidência.\n• Art. 8º–10º: Regula mandatos, recondução, substituições por suplentes e extinção de mandato (ausência injustificada a 3 reuniões ordinárias consecutivas ou 6 intercaladas no período de 1 ano, indicação da entidade, exoneração, renúncia ou conduta incompatível).\n• Art. 11–14: Estrutura física, assessoria técnica em legislação do ensino, reuniões mensais ordinárias, extraordinárias por urgência, quórum mínimo de 2/3 para deliberações e voto de desempate do Presidente.\n• Art. 15–22: Articulação com SEMED, demais Conselhos Municipais, sociedade civil, Conselhos Nacional e Estadual de Educação, elaboração do Regimento Interno e vigência a partir de 16/04/2003 (Tabira Ramos Dias Ferreira — Prefeito Municipal)."
+            },
+            {
+              id: "act-lei-367-2009",
+              type: "Lei Municipal",
+              number: "367/2009",
+              year: "2009",
+              date: "2009-11-16",
+              category: "Criação e Organização do CME",
+              approvalRef: "Sancionada pelo Prefeito Tabira Ramos Dias Ferreira (16/11/2009)",
+              title: "Dá nova redação aos arts. 6º e 8º da Lei Municipal nº 297, de 16 de abril de 2003, e dá outras providências",
+              rapporteur: "Prefeitura Municipal de Juruá — Gabinete do Prefeito",
+              status: "Vigente",
+              docUrl: "",
+              body: "LEI Nº 367, DE 16 DE NOVEMBRO DE 2009.\nPrefeitura Municipal de Juruá — Estado do Amazonas (Rua Francisco de Paula, 98 - Centro - Juruá/AM - CEP 69.520-000).\n\n• Art. 1º — Nova redação do Art. 6º da Lei nº 297/2003: O CME passa a ser constituído de 7 (sete) membros titulares (com respectivos suplentes), assim representados:\n  I — Um representante da Secretaria Municipal de Educação, Cultura, Desporto e Lazer;\n  II — Um representante da Associação de Pais, Mestres e Comunitários (APMC) das Escolas Municipais;\n  III — Um representante do Conselho de Acompanhamento e Controle Social do FUNDEB;\n  IV — Um representante da Secretaria Estadual de Educação;\n  V — Um representante do Conselho Tutelar;\n  VI — Um representante do Sindicato dos Professores;\n  VII — Um representante da Secretaria Municipal de Trabalho e Ação Social.\n\n• Art. 2º — Nova redação do Art. 8º da Lei nº 297/2003: O mandato dos membros do CME terá duração de 3 (três) anos, podendo ser reconduzidos por mais 3 (três) anos, caso haja anuência das bases, com renovação parcial para garantir a continuidade dos trabalhos e das políticas municipais de educação.\n\n• Art. 3º–4º: Mantêm-se inalterados os demais dispositivos da Lei nº 297/2003; entra em vigor em 16 de novembro de 2009 (Tabira Ramos Dias Ferreira — Prefeito Municipal)."
+            },
+            {
+              id: "act-regimento-interno-2011",
+              type: "Regimento Interno",
+              number: "001/2011",
+              year: "2011",
+              date: "2011-04-19",
+              category: "Criação e Organização do CME",
+              approvalRef: "Aprovado na Sala de Sessões do CME-JU em 19 de abril de 2011 (Arts. 1º a 45)",
+              title: "Regimento Interno do Conselho Municipal de Educação de Juruá-AM",
+              rapporteur: "Plenário e Presidência do CME-JU",
+              status: "Vigente",
+              docUrl: "",
+              body: "REGIMENTO INTERNO DO CONSELHO MUNICIPAL DE EDUCAÇÃO DE JURUÁ-AM (19 de abril de 2011).\n\n• Cap. I (Art. 1º): Finalidade normativa, consultiva, fiscalizadora e de deliberação superior do Sistema Municipal de Ensino, com autonomia administrativa e vinculação à SEMED.\n• Cap. II (Arts. 2º–3º): Composição de 7 membros (Lei nº 367/2009) e estrutura organizacional: Plenário (deliberação superior), Presidência (direção superior), Comissões (deliberação setorial) e Secretaria Executiva (apoio administrativo).\n• Cap. III (Art. 4º): Competências para deliberar sobre funcionamento/planejamento, autorizar estabelecimentos de Educação Infantil e Ensino Fundamental, orientar regimentos escolares, fixar grade diversificada, normatizar atendimento educacional especializado, analisar e aprovar PPPs e alterações curriculares, normatizar EJA e habilitação/capacitação docente.\n• Cap. IV (Arts. 5º–15): Atribuições do Plenário, Conselheiros (inclusive visita periódica às escolas), Presidência (voto simples e de qualidade), Comissões permanentes (Art. 9º: I — Educação Infantil e Ensino Fundamental; II — EJA e Educação Indígena; III — Legislação e Normas) e Secretaria Executiva.\n• Cap. V (Arts. 16–27): Reuniões ordinárias mensais, quórum de abertura (metade + 1) e de votação (2/3), prazos de tramitação (até 20 dias úteis nas Comissões e até 30 dias úteis no Plenário, art. 23) e maioria de votos (art. 24).\n• Cap. VI–VIII (Arts. 28–45): Mandato de 3 anos (art. 29), extinção de mandato (art. 30), eleição da Presidência por maioria absoluta com mandato de 3 anos (art. 32), presidência de Comissão com mandato de 2 anos (art. 35), residência obrigatória em Juruá (art. 39), recesso de até 90 dias conforme calendário (art. 40) e limite de recondução presidencial (art. 44)."
+            }
+          ],
+          processes: [],
+          monitoring: [
+            {
+              axis: "Gestão Escolar",
+              unit: "Sistema Municipal de Ensino de Juruá-AM",
+              articulation: "CME • SEMED • APMC",
+              status: "Em Acompanhamento",
+              note: "Acompanhamento de PPPs, regimentos escolares e gestão democrática (Lei 297/2003, art. 4º; Regimento, art. 4º)."
+            },
+            {
+              axis: "Frequência e Diário",
+              unit: "Escolas da Rede Municipal",
+              articulation: "CME • SEMED • Conselho Tutelar",
+              status: "Monitorado",
+              note: "Articulação com Conselho Tutelar e SEMED para frequência escolar e permanência (Lei 367/2009, art. 6º)."
+            },
+            {
+              axis: "Infraestrutura",
+              unit: "Unidades Escolares Municipais",
+              articulation: "CME • SEMED • CACS/FUNDEB",
+              status: "Em Acompanhamento",
+              note: "Acompanhamento de condições de oferta e aplicação de recursos educacionais (Lei 297/2003, art. 3º, X)."
+            },
+            {
+              axis: "Metas do PME",
+              unit: "Plano Municipal de Educação — Juruá-AM",
+              articulation: "CME • SEMED • Sociedade Civil",
+              status: "Vigente",
+              note: "Pareceres, discussão e acompanhamento do PME (Lei 297/2003, art. 3º, III e art. 4º, III)."
+            }
+          ],
+          news: [],
+          agenda: [],
+          ombudsman: []
+        };
+      }
+
+      // Embedded snapshot placeholder replaced automatically when generating updated index.html
+      const EMBEDDED_SNAPSHOT = null;
+
+      function loadState() {
+        try {
+          localStorage.removeItem("cme_jurua_am_portal_v1");
+          localStorage.removeItem("cme_jurua_am_portal_v2");
+          localStorage.removeItem("cme_jurua_am_portal_v3");
+          const raw = localStorage.getItem(STORAGE_KEY);
+          const source = raw ? JSON.parse(raw) : (EMBEDDED_SNAPSHOT || getDefaultState());
+          const base = getDefaultState();
+          return {
+            ...base,
+            ...source,
+            kpis: { ...base.kpis, ...(source.kpis || {}) },
+            schools: Array.isArray(source.schools) ? source.schools : base.schools,
+            members: Array.isArray(source.members) && source.members.length ? source.members : base.members,
+            acts: Array.isArray(source.acts) && source.acts.length ? source.acts : base.acts,
+            processes: Array.isArray(source.processes) ? source.processes : [],
+            monitoring: Array.isArray(source.monitoring) && source.monitoring.length ? source.monitoring : base.monitoring,
+            news: Array.isArray(source.news) ? source.news : [],
+            agenda: Array.isArray(source.agenda) ? source.agenda : [],
+            ombudsman: Array.isArray(source.ombudsman) ? source.ombudsman : []
+          };
+        } catch (err) {
+          console.error("Erro ao carregar estado:", err);
+          return getDefaultState();
+        }
+      }
+
+      let state = loadState();
+
+      function saveState() {
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+        } catch (err) {
+          console.error("Erro ao salvar estado:", err);
+        }
+      }
+
+      function showToast(message, type = "info") {
+        const container = document.getElementById("toast-container");
+        if (!container) return;
+        const tone =
+          type === "error"
+            ? "bg-red-900 text-white border-red-700"
+            : "bg-cmeBlue-900 text-white border-cmeGreen-500";
+        const toast = document.createElement("div");
+        toast.className = `px-4 py-3 rounded-xl border shadow-lg text-xs sm:text-sm font-medium ${tone}`;
+        toast.textContent = message;
+        container.appendChild(toast);
+        setTimeout(() => {
+          toast.remove();
+        }, 3600);
+      }
+
+      function applyLogo() {
+        const src = (state && state.logoUrl) ? state.logoUrl : OFFICIAL_CME_LOGO_DATA_URI;
+        document.querySelectorAll("img[data-cme-logo]").forEach((img) => {
+          img.onerror = function () {
+            this.onerror = null;
+            this.src = OFFICIAL_CME_LOGO_DATA_URI;
+          };
+          if (img.getAttribute("src") !== src) {
+            img.setAttribute("src", src);
+          }
+        });
+        const favicon = document.getElementById("cme-favicon");
+        if (favicon && favicon.getAttribute("href") !== src) {
+          favicon.setAttribute("href", src);
+        }
+      }
+
+      function escapeHtml(str) {
+        return String(str ?? "")
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;")
+          .replace(/'/g, "&#039;");
+      }
+
+      function formatDateBr(iso) {
+        if (!iso) return "";
+        const parts = iso.split("-");
+        if (parts.length !== 3) return iso;
+        return `${parts[2]}/${parts[1]}/${parts[0]}`;
+      }
+
+      // Accessibility controls
+      let fontScale = 1;
+      document.getElementById("btn-font-dec").addEventListener("click", () => {
+        fontScale = Math.max(0.9, +(fontScale - 0.05).toFixed(2));
+        document.documentElement.style.setProperty("--font-scale", fontScale);
+        showToast("Tamanho da fonte ajustado para menor.");
+      });
+      document.getElementById("btn-font-reset").addEventListener("click", () => {
+        fontScale = 1;
+        document.documentElement.style.setProperty("--font-scale", 1);
+        showToast("Tamanho da fonte restaurado ao padrão.");
+      });
+      document.getElementById("btn-font-inc").addEventListener("click", () => {
+        fontScale = Math.min(1.2, +(fontScale + 0.05).toFixed(2));
+        document.documentElement.style.setProperty("--font-scale", fontScale);
+        showToast("Tamanho da fonte ampliado.");
+      });
+      document.getElementById("btn-high-contrast").addEventListener("click", (e) => {
+        const btn = e.currentTarget;
+        const active = document.body.classList.toggle("high-contrast");
+        btn.setAttribute("aria-pressed", String(active));
+        showToast(active ? "Modo Alto Contraste ativado." : "Modo Alto Contraste desativado.");
+      });
+
+      // Dark Mode Toggle
+      function syncDarkModeUI(enabled) {
+        const btn = document.getElementById("btn-dark-mode");
+        const iconMoon = document.getElementById("icon-moon");
+        const iconSun = document.getElementById("icon-sun");
+        const label = document.getElementById("label-dark-mode");
+        if (btn) btn.setAttribute("aria-pressed", String(enabled));
+        if (iconMoon) iconMoon.classList.toggle("hidden", enabled);
+        if (iconSun) iconSun.classList.toggle("hidden", !enabled);
+        if (label) label.textContent = enabled ? "Modo Claro" : "Modo Escuro";
+      }
+
+      function setDarkMode(enabled, persist = true) {
+        document.body.classList.toggle("dark-mode", Boolean(enabled));
+        syncDarkModeUI(Boolean(enabled));
+        if (persist) {
+          try {
+            localStorage.setItem(DARK_MODE_KEY, enabled ? "1" : "0");
+          } catch (err) {
+            console.error("Erro ao salvar preferência de modo escuro:", err);
+          }
+        }
+      }
+
+      (function initDarkMode() {
+        let saved = null;
+        try {
+          saved = localStorage.getItem(DARK_MODE_KEY);
+        } catch (err) {
+          saved = null;
+        }
+        const prefersDark =
+          window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+        const initialDark = saved !== null ? saved === "1" : prefersDark;
+        setDarkMode(initialDark, false);
+      })();
+
+      document.getElementById("btn-dark-mode").addEventListener("click", () => {
+        const next = !document.body.classList.contains("dark-mode");
+        setDarkMode(next, true);
+        showToast(next ? "Modo Escuro ativado." : "Modo Claro ativado.");
+      });
+
+      // Tab Navigation
+      function setActiveTab(tabName) {
+        document.querySelectorAll(".page-section").forEach((sec) => {
+          sec.classList.add("hidden");
+        });
+        const targetSection = document.getElementById(`section-${tabName}`);
+        if (targetSection) {
+          targetSection.classList.remove("hidden");
+        }
+
+        document.querySelectorAll(".nav-trigger").forEach((btn) => {
+          if (btn.dataset.tab === tabName) {
+            btn.classList.add("tab-active");
+          } else {
+            btn.classList.remove("tab-active");
+          }
+        });
+
+        const drawer = document.getElementById("mobile-nav-drawer");
+        const iconHam = document.getElementById("icon-hamburger");
+        const iconClose = document.getElementById("icon-close");
+        const mobileBtn = document.getElementById("btn-mobile-menu");
+        if (drawer && !drawer.classList.contains("hidden")) {
+          drawer.classList.add("hidden");
+          iconHam.classList.remove("hidden");
+          iconClose.classList.add("hidden");
+          mobileBtn.setAttribute("aria-expanded", "false");
+        }
+
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      document.querySelectorAll(".nav-trigger").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const tab = btn.dataset.tab;
+          if (tab) setActiveTab(tab);
+        });
+      });
+
+      document.getElementById("btn-mobile-menu").addEventListener("click", function () {
+        const drawer = document.getElementById("mobile-nav-drawer");
+        const iconHam = document.getElementById("icon-hamburger");
+        const iconClose = document.getElementById("icon-close");
+        const isHidden = drawer.classList.toggle("hidden");
+        this.setAttribute("aria-expanded", String(!isHidden));
+        iconHam.classList.toggle("hidden", !isHidden);
+        iconClose.classList.toggle("hidden", isHidden);
+      });
+
+      // Modal logic
+      let currentModalPayload = null;
+      function openDetailModal({ badge, title, meta, body }) {
+        currentModalPayload = { badge, title, meta, body };
+        document.getElementById("modal-badge").textContent = badge || "Documento Oficial";
+        document.getElementById("modal-title").textContent = title || "";
+        document.getElementById("modal-meta").textContent = meta || "";
+        document.getElementById("modal-body").textContent = body || "";
+        const modal = document.getElementById("detail-modal");
+        modal.classList.remove("hidden");
+        modal.classList.add("flex");
+      }
+
+      function closeDetailModal() {
+        const modal = document.getElementById("detail-modal");
+        modal.classList.add("hidden");
+        modal.classList.remove("flex");
+      }
+
+      document.getElementById("btn-close-modal").addEventListener("click", closeDetailModal);
+      document.getElementById("btn-modal-close-footer").addEventListener("click", closeDetailModal);
+      document.getElementById("detail-modal").addEventListener("click", (e) => {
+        if (e.target.id === "detail-modal") closeDetailModal();
+      });
+      document.getElementById("btn-modal-print").addEventListener("click", () => {
+        window.print();
+      });
+      document.getElementById("btn-modal-download").addEventListener("click", () => {
+        if (!currentModalPayload) return;
+        const content = `${currentModalPayload.badge}\n${currentModalPayload.title}\n${currentModalPayload.meta}\n\n${currentModalPayload.body}`;
+        const blob = new Blob([content], { type: "text/plain;charset=utf-8" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "cme-jurua-documento.txt";
+        a.click();
+        URL.revokeObjectURL(url);
+        showToast("Arquivo .TXT baixado.");
+      });
+
+      // Render Home
+      function renderHome() {
+        const kpiContainer = document.getElementById("home-kpis");
+        const activeProcesses = state.processes.filter((p) => p.status !== "Aprovado em Plenário").length;
+        const monitoredCount = state.schools.length > 0 ? state.schools.length : state.kpis.monitoredSchools;
+        const cards = [
+          {
+            label: "Atos Normativos Publicados",
+            value: state.acts.length,
+            sub: "Lei 297/2003, Lei 367/2009, Regimento e atos",
+            accent: "border-l-4 border-l-cmeGreen-700"
+          },
+          {
+            label: "Processos em Tramitação",
+            value: activeProcesses,
+            sub: `De ${state.processes.length} protocolos registrados`,
+            accent: "border-l-4 border-l-cmeBlue-700"
+          },
+          {
+            label: "Composição Legal do Plenário",
+            value: "7 Membros",
+            sub: `Lei nº 367/2009 • ${monitoredCount} escola(s) cadastrada(s)`,
+            accent: "border-l-4 border-l-cmeGreen-600"
+          },
+          {
+            label: "Reuniões Plenárias no Ano",
+            value: state.kpis.meetingsInYear,
+            sub: "Sessões ordinárias mensais (Art. 13 / Art. 16)",
+            accent: "border-l-4 border-l-cmeBlue-600"
+          }
+        ];
+
+        kpiContainer.innerHTML = cards
+          .map(
+            (c) => `
+            <div class="bg-white hc-card rounded-2xl border border-slate-200 p-5 shadow-sm ${c.accent}">
+              <p class="text-xs font-semibold text-slate-500 hc-muted">${escapeHtml(c.label)}</p>
+              <p class="text-3xl font-extrabold text-slate-900 mt-1">${escapeHtml(c.value)}</p>
+              <p class="text-xs text-slate-600 hc-muted mt-1">${escapeHtml(c.sub)}</p>
+            </div>
+          `
+          )
+          .join("");
+
+        const newsBox = document.getElementById("home-news-list");
+        if (!state.news.length) {
+          newsBox.innerHTML = `<div class="p-4 rounded-xl border border-slate-200 text-xs text-slate-600">Nenhum comunicado ou convocação publicado até o momento. Utilize o Painel Administrativo para publicar.</div>`;
+        } else {
+          newsBox.innerHTML = state.news
+            .slice(0, 3)
+            .map(
+              (n) => `
+              <article class="p-4 rounded-xl border border-slate-200/90 hover:border-cmeBlue-300 bg-slate-50/50 transition space-y-1.5">
+                <div class="flex items-center justify-between gap-2 text-xs">
+                  <span class="px-2 py-0.5 rounded font-bold bg-cmeGreen-100 text-cmeGreen-800">${escapeHtml(n.tag)}</span>
+                  <span class="text-slate-500">${escapeHtml(formatDateBr(n.date))}</span>
+                </div>
+                <h4 class="font-bold text-slate-900 text-sm">${escapeHtml(n.title)}</h4>
+                <p class="text-xs text-slate-600 hc-muted line-clamp-2">${escapeHtml(n.body)}</p>
+              </article>
+            `
+            )
+            .join("");
+        }
+
+        const agendaBox = document.getElementById("home-agenda-list");
+        if (!state.agenda.length) {
+          agendaBox.innerHTML = `<div class="p-4 rounded-xl border border-slate-200 text-xs text-slate-600">Nenhuma reunião ou audiência agendada no calendário no momento.</div>`;
+        } else {
+          agendaBox.innerHTML = state.agenda
+            .slice(0, 3)
+            .map(
+              (a) => `
+              <div class="p-3.5 rounded-xl border border-slate-200 bg-cmeBlue-50/40 space-y-1">
+                <p class="text-xs font-bold text-cmeBlue-800">${escapeHtml(a.date)}</p>
+                <p class="text-sm font-bold text-slate-900">${escapeHtml(a.title)}</p>
+                <p class="text-xs text-slate-600">${escapeHtml(a.place)}</p>
+              </div>
+            `
+            )
+            .join("");
+        }
+      }
+
+      // Render Council Members
+      let activeCouncilSegment = "Todos";
+      function renderCouncilMembers() {
+        const grid = document.getElementById("council-members-grid");
+        if (!grid) return;
+        const list =
+          activeCouncilSegment === "Todos"
+            ? state.members
+            : state.members.filter((m) => m.segment === activeCouncilSegment);
+
+        if (!list.length) {
+          grid.innerHTML = `<div class="sm:col-span-2 lg:col-span-3 p-5 rounded-xl border border-slate-200 text-xs sm:text-sm text-slate-600">Nenhum segmento encontrado neste filtro.</div>`;
+          return;
+        }
+
+        grid.innerHTML = list
+          .map(
+            (m) => `
+            <div class="p-4 rounded-xl border border-slate-200 bg-slate-50/60 space-y-1">
+              <span class="inline-block px-2 py-0.5 rounded text-[11px] font-bold bg-cmeBlue-100 text-cmeBlue-900">${escapeHtml(m.segment || "Plenário")}</span>
+              <h4 class="font-bold text-slate-900 text-sm">${escapeHtml(m.name)}</h4>
+              <p class="text-xs text-slate-600">${escapeHtml(m.role || "Conselheiro(a)")}</p>
+            </div>
+          `
+          )
+          .join("");
+      }
+
+      document.querySelectorAll(".council-filter-btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          activeCouncilSegment = btn.dataset.segment || "Todos";
+          document.querySelectorAll(".council-filter-btn").forEach((b) => {
+            b.className =
+              "council-filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 cursor-pointer";
+          });
+          btn.className =
+            "council-filter-btn px-3 py-1.5 rounded-lg text-xs font-bold bg-cmeBlue-700 text-white cursor-pointer";
+          renderCouncilMembers();
+        });
+      });
+
+      // Render Schools Directory (PPPs & Regimentos Escolares)
+      function renderSchoolsDirectory() {
+        const filterEl = document.getElementById("schools-approval-filter");
+        const badgeEl = document.getElementById("schools-count-badge");
+        const listEl = document.getElementById("schools-directory-list");
+        if (!filterEl || !badgeEl || !listEl) return;
+
+        const filterVal = filterEl.value;
+        const filtered =
+          filterVal === "Todos"
+            ? state.schools
+            : state.schools.filter((s) => (s.status || "Cadastrada") === filterVal);
+
+        badgeEl.textContent = `${filtered.length} ${filtered.length === 1 ? "escola" : "escolas"}`;
+
+        if (filtered.length === 0) {
+          listEl.innerHTML = `<div class="md:col-span-2 p-5 rounded-xl border border-slate-200 text-sm text-slate-600">Nenhuma unidade escolar encontrada para o filtro selecionado. Cadastre ou atualize escolas no Painel Administrativo.</div>`;
+          return;
+        }
+
+        listEl.innerHTML = filtered
+          .map((s) => {
+            const st = s.status || "Cadastrada";
+            const badgeStyle =
+              st === "Aprovado"
+                ? "bg-emerald-100 text-emerald-900"
+                : st === "Em Análise"
+                ? "bg-amber-100 text-amber-900"
+                : "bg-cmeBlue-100 text-cmeBlue-900";
+
+            const pppBtn = s.pppUrl
+              ? `<a href="${escapeHtml(s.pppUrl)}" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-lg bg-cmeGreen-700 hover:bg-cmeGreen-800 text-white text-xs font-bold">Abrir PPP</a>`
+              : `<span class="px-2.5 py-1 rounded-lg bg-slate-100 text-slate-500 text-xs">PPP não anexado</span>`;
+
+            const regBtn = s.regimentUrl
+              ? `<a href="${escapeHtml(s.regimentUrl)}" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-lg bg-cmeBlue-700 hover:bg-cmeBlue-800 text-white text-xs font-bold">Abrir Regimento</a>`
+              : `<span class="px-2.5 py-1 rounded-lg bg-slate-100 text-slate-500 text-xs">Regimento não anexado</span>`;
+
+            return `
+              <article class="p-4 rounded-2xl border border-slate-200 bg-slate-50/60 space-y-2.5">
+                <div class="flex items-start justify-between gap-2">
+                  <div>
+                    <h4 class="font-bold text-slate-900 text-base">${escapeHtml(s.name)}</h4>
+                    <p class="text-xs text-slate-600">${escapeHtml(s.zone || "Juruá-AM")} • ${escapeHtml(s.modalities || "Rede Municipal")}</p>
+                  </div>
+                  <span class="px-2.5 py-0.5 rounded-full text-xs font-bold shrink-0 ${badgeStyle}">${escapeHtml(st)}</span>
+                </div>
+                ${
+                  s.approvalRef || s.approvalDate
+                    ? `<p class="text-xs text-cmeGreen-900 font-semibold">Ato de Aprovação: ${escapeHtml(s.approvalRef || "Registrado")}${s.approvalDate ? ` (${escapeHtml(formatDateBr(s.approvalDate))})` : ""}</p>`
+                    : `<p class="text-xs text-slate-500">Ato de aprovação pendente de registro.</p>`
+                }
+                <div class="pt-1 flex flex-wrap items-center gap-2">
+                  ${pppBtn}
+                  ${regBtn}
+                </div>
+              </article>
+            `;
+          })
+          .join("");
+      }
+
+      document.getElementById("schools-approval-filter").addEventListener("change", renderSchoolsDirectory);
+
+      // Render Acts Repository
+      function renderActs() {
+        const query = document.getElementById("acts-search").value.trim().toLowerCase();
+        const typeFilter = document.getElementById("acts-type-filter").value;
+        const yearFilter = document.getElementById("acts-year-filter").value;
+
+        const filtered = state.acts.filter((act) => {
+          const matchesType = typeFilter === "Todos" || act.type === typeFilter;
+          const actYear = act.year || (act.date ? act.date.slice(0, 4) : "");
+          const matchesYear = yearFilter === "Todos" || actYear === yearFilter;
+          const haystack = `${act.type} ${act.number} ${act.category || ""} ${act.approvalRef || ""} ${act.title} ${act.rapporteur} ${act.body}`.toLowerCase();
+          const matchesQuery = !query || haystack.includes(query);
+          return matchesType && matchesYear && matchesQuery;
+        });
+
+        document.getElementById("acts-count-badge").textContent = `${filtered.length} ${filtered.length === 1 ? "ato listado" : "atos listados"}`;
+
+        const listEl = document.getElementById("acts-list");
+        if (filtered.length === 0) {
+          listEl.innerHTML = `<div class="p-6 rounded-2xl border border-slate-200 text-center text-sm text-slate-600">Nenhum ato normativo encontrado com os filtros selecionados.</div>`;
+          return;
+        }
+
+        listEl.innerHTML = filtered
+          .map((act) => {
+            const statusClass =
+              act.status === "Vigente" || act.status === "Aprovado"
+                ? "bg-emerald-100 text-emerald-900"
+                : act.status === "Em Consulta"
+                ? "bg-amber-100 text-amber-900"
+                : "bg-slate-200 text-slate-700";
+
+            const docLinkHtml = act.docUrl
+              ? `<a href="${escapeHtml(act.docUrl)}" target="_blank" rel="noopener noreferrer" class="px-3.5 py-2.5 rounded-xl bg-cmeBlue-700 hover:bg-cmeBlue-800 text-white text-xs font-bold shrink-0">Abrir / Baixar Documento</a>`
+              : "";
+
+            return `
+              <article class="p-4 sm:p-5 rounded-2xl border border-slate-200 bg-white hc-card hover:border-cmeBlue-300 transition flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div class="space-y-1.5">
+                  <div class="flex flex-wrap items-center gap-2 text-xs">
+                    <span class="px-2.5 py-0.5 rounded-md font-bold bg-cmeBlue-100 text-cmeBlue-900">${escapeHtml(act.type)} nº ${escapeHtml(act.number)}</span>
+                    ${act.category ? `<span class="px-2 py-0.5 rounded-md font-semibold bg-cmeGreen-50 text-cmeGreen-900 border border-cmeGreen-200">${escapeHtml(act.category)}</span>` : ""}
+                    <span class="px-2 py-0.5 rounded-md font-semibold ${statusClass}">${escapeHtml(act.status)}</span>
+                    <span class="text-slate-500">Data: ${escapeHtml(formatDateBr(act.date))}</span>
+                  </div>
+                  <h3 class="font-bold text-slate-900 text-base">${escapeHtml(act.title)}</h3>
+                  ${act.approvalRef ? `<p class="text-xs font-semibold text-cmeBlue-800">Ato de Referência / Aprovação: ${escapeHtml(act.approvalRef)}</p>` : ""}
+                  <p class="text-xs text-slate-600 hc-muted">Relator(a): <span class="font-semibold">${escapeHtml(act.rapporteur)}</span></p>
+                </div>
+                <div class="flex flex-wrap items-center gap-2 shrink-0">
+                  ${docLinkHtml}
+                  <button type="button" data-act-id="${escapeHtml(act.id)}"
+                    class="view-act-btn px-4 py-2.5 rounded-xl bg-cmeGreen-700 hover:bg-cmeGreen-800 text-white text-xs font-bold cursor-pointer">
+                    Ler Íntegra / Imprimir
+                  </button>
+                </div>
+              </article>
+            `;
+          })
+          .join("");
+
+        document.querySelectorAll(".view-act-btn").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const act = state.acts.find((a) => a.id === btn.dataset.actId);
+            if (!act) return;
+            const extraMeta = [
+              `Data: ${formatDateBr(act.date)}`,
+              `Relator(a): ${act.rapporteur}`,
+              act.category ? `Eixo: ${act.category}` : "",
+              act.approvalRef ? `Ato de Referência: ${act.approvalRef}` : "",
+              act.docUrl ? `Arquivo/Link: ${act.docUrl}` : "",
+              "CME Juruá-AM"
+            ]
+              .filter(Boolean)
+              .join(" | ");
+            openDetailModal({
+              badge: `${act.type} nº ${act.number} • ${act.status}`,
+              title: act.title,
+              meta: extraMeta,
+              body: act.body
+            });
+          });
+        });
+      }
+
+      document.getElementById("acts-search").addEventListener("input", renderActs);
+      document.getElementById("acts-type-filter").addEventListener("change", renderActs);
+      document.getElementById("acts-year-filter").addEventListener("change", renderActs);
+
+      // Render Processes & Search
+      function renderProcesses(filterText = "") {
+        const container = document.getElementById("process-results");
+        if (!container) return;
+        const q = String(filterText || "").trim().toLowerCase();
+
+        if (!state.processes.length) {
+          container.innerHTML = `<div class="p-4 rounded-xl border border-slate-200 text-xs sm:text-sm text-slate-600">Nenhum protocolo cadastrado no momento. Registre ou atualize processos no Painel Administrativo.</div>`;
+          return;
+        }
+
+        const matches = state.processes.filter((p) => {
+          if (!q) return true;
+          return (
+            p.code.toLowerCase().includes(q) ||
+            p.school.toLowerCase().includes(q) ||
+            p.subject.toLowerCase().includes(q)
+          );
+        });
+
+        if (matches.length === 0) {
+          container.innerHTML = `<div class="p-5 rounded-xl border border-slate-200 text-sm text-slate-600">Nenhum processo localizado para "${escapeHtml(filterText)}". Verifique o número do protocolo ou o nome da escola.</div>`;
+          return;
+        }
+
+        container.innerHTML = matches
+          .map((p) => {
+            const badgeColor =
+              p.status === "Aprovado em Plenário"
+                ? "bg-emerald-100 text-emerald-900"
+                : p.status === "Diligência / Complementação"
+                ? "bg-amber-100 text-amber-900"
+                : "bg-cmeBlue-100 text-cmeBlue-900";
+
+            const stepsHtml = (p.timeline || [])
+              .map(
+                (t) => `
+                <li class="flex items-start gap-2.5 text-xs">
+                  <span class="w-2 h-2 rounded-full bg-cmeGreen-700 mt-1.5 shrink-0"></span>
+                  <div>
+                    <span class="font-bold text-slate-800">${escapeHtml(formatDateBr(t.date))}:</span>
+                    <span class="text-slate-600">${escapeHtml(t.step)}</span>
+                  </div>
+                </li>
+              `
+              )
+              .join("");
+
+            return `
+              <div class="p-5 rounded-2xl border border-slate-200 bg-slate-50/60 space-y-3">
+                <div class="flex flex-wrap items-center justify-between gap-2">
+                  <div>
+                    <span class="text-xs font-extrabold text-cmeBlue-800 bg-white px-2.5 py-1 rounded-lg border border-slate-200">${escapeHtml(p.code)}</span>
+                    <span class="ml-2 text-xs text-slate-500">Atualizado em ${escapeHtml(formatDateBr(p.updatedAt))}</span>
+                  </div>
+                  <span class="px-3 py-1 rounded-full text-xs font-bold ${badgeColor}">${escapeHtml(p.status)}</span>
+                </div>
+                <div>
+                  <h3 class="font-bold text-slate-900 text-base">${escapeHtml(p.school)}</h3>
+                  <p class="text-sm text-slate-700">${escapeHtml(p.subject)}</p>
+                  <p class="text-xs text-slate-600 mt-0.5">Relator(a): <strong>${escapeHtml(p.rapporteur)}</strong></p>
+                </div>
+                <div class="pt-2 border-t border-slate-200/80">
+                  <p class="text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">Linha do Tempo de Tramitação</p>
+                  <ul class="space-y-1.5">${stepsHtml}</ul>
+                </div>
+              </div>
+            `;
+          })
+          .join("");
+      }
+
+      document.getElementById("process-search-form").addEventListener("submit", (e) => {
+        e.preventDefault();
+        renderProcesses(document.getElementById("process-query").value);
+      });
+      document.getElementById("btn-show-all-processes").addEventListener("click", () => {
+        document.getElementById("process-query").value = "";
+        renderProcesses("");
+      });
+
+      // Checklist & Template Copy
+      const checklistData = [
+        "Ofício de encaminhamento assinado pela direção da unidade escolar",
+        "Ata de aprovação pelo Conselho Escolar / comunidade local",
+        "Texto do PPP, Regimento Escolar ou proposta de Calendário Letivo",
+        "Quadro de professores e habilitação / formação compatível",
+        "Manifestação ou ciência técnica da SEMED Juruá-AM"
+      ];
+
+      function renderChecklist() {
+        const box = document.getElementById("checklist-items");
+        box.innerHTML = checklistData
+          .map(
+            (item, idx) => `
+            <label class="flex items-start gap-2.5 p-2.5 rounded-xl border border-slate-200 hover:bg-slate-50 cursor-pointer">
+              <input type="checkbox" class="cme-check mt-0.5 rounded text-cmeGreen-700" data-idx="${idx}" />
+              <span class="text-slate-700">${escapeHtml(item)}</span>
+            </label>
+          `
+          )
+          .join("");
+
+        const updateCount = () => {
+          const boxes = document.querySelectorAll(".cme-check");
+          const checked = Array.from(boxes).filter((b) => b.checked).length;
+          document.getElementById("checklist-progress").textContent = `${checked} de ${boxes.length} itens conferidos`;
+        };
+        document.querySelectorAll(".cme-check").forEach((b) => b.addEventListener("change", updateCount));
+      }
+
+      document.getElementById("btn-copy-template").addEventListener("click", () => {
+        const templateText =
+          "À Presidência do Conselho Municipal de Educação de Juruá-AM (CME)\n\n" +
+          "A [Nome da Unidade Escolar], localizada em Juruá-AM, vem respeitosamente requerer a análise e deliberação sobre [Autorização / Aprovação de PPP / Regimento Escolar / Calendário Letivo], instruindo o presente pedido com ata do Conselho Escolar e documentação anexa.\n\n" +
+          "Nestes termos, pede deferimento.\nJuruá-AM, [Data].\n[Assinatura da Direção Escolar]";
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(templateText).catch(() => {});
+        }
+        const temp = document.createElement("textarea");
+        temp.value = templateText;
+        document.body.appendChild(temp);
+        temp.select();
+        try {
+          document.execCommand("copy");
+        } catch (err) {}
+        document.body.removeChild(temp);
+        showToast("Modelo de requerimento copiado para a área de transferência.");
+      });
+
+      // Render Social Control & Monitoring
+      function renderMonitoring() {
+        const axisFilter = document.getElementById("monitoring-axis-filter").value;
+        const filtered =
+          axisFilter === "Todos"
+            ? state.monitoring
+            : state.monitoring.filter((m) => m.axis === axisFilter);
+
+        const cardsBox = document.getElementById("monitoring-cards");
+        const tableBox = document.getElementById("monitoring-table-body");
+
+        if (!state.monitoring.length) {
+          cardsBox.innerHTML = `<div class="md:col-span-2 lg:col-span-4 p-4 rounded-xl border border-slate-200 text-xs text-slate-600">Nenhum indicador de monitoramento registrado ainda.</div>`;
+          tableBox.innerHTML = `<tr><td colspan="5" class="px-4 py-4 text-xs text-slate-600">Nenhum registro de monitoramento disponível.</td></tr>`;
+          return;
+        }
+
+        cardsBox.innerHTML = state.monitoring
+          .map(
+            (m) => `
+            <div class="p-4 rounded-2xl border border-slate-200 bg-slate-50/70 space-y-1.5">
+              <span class="text-xs font-bold text-cmeBlue-800">${escapeHtml(m.axis)}</span>
+              <h3 class="font-bold text-slate-900 text-sm">${escapeHtml(m.unit)}</h3>
+              <p class="text-xs text-cmeGreen-800 font-semibold">${escapeHtml(m.articulation)}</p>
+              <span class="inline-block px-2 py-0.5 rounded text-[11px] font-bold bg-cmeBlue-100 text-cmeBlue-900">${escapeHtml(m.status)}</span>
+            </div>
+          `
+          )
+          .join("");
+
+        tableBox.innerHTML = filtered
+          .map(
+            (m) => `
+            <tr>
+              <td class="px-4 py-3 font-bold text-slate-900">${escapeHtml(m.axis)}</td>
+              <td class="px-4 py-3 text-slate-700">${escapeHtml(m.unit)}</td>
+              <td class="px-4 py-3 text-cmeBlue-800 font-medium">${escapeHtml(m.articulation)}</td>
+              <td class="px-4 py-3">
+                <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-cmeGreen-100 text-cmeGreen-900">${escapeHtml(m.status)}</span>
+              </td>
+              <td class="px-4 py-3 text-slate-600">${escapeHtml(m.note)}</td>
+            </tr>
+          `
+          )
+          .join("");
+      }
+
+      document.getElementById("monitoring-axis-filter").addEventListener("change", renderMonitoring);
+
+      // Render News & Agenda Page
+      function renderNewsAndAgendaPage() {
+        const newsEl = document.getElementById("news-full-list");
+        const agendaEl = document.getElementById("agenda-full-list");
+
+        newsEl.innerHTML = !state.news.length
+          ? `<div class="p-5 rounded-xl border border-slate-200 text-sm text-slate-600">Nenhuma notícia ou convocação publicada no momento.</div>`
+          : state.news
+              .map(
+                (n) => `
+                <article class="p-5 rounded-2xl border border-slate-200 bg-slate-50/60 space-y-2">
+                  <div class="flex items-center justify-between text-xs">
+                    <span class="px-2.5 py-0.5 rounded-md font-bold bg-cmeGreen-100 text-cmeGreen-900">${escapeHtml(n.tag)}</span>
+                    <span class="text-slate-500">${escapeHtml(formatDateBr(n.date))}</span>
+                  </div>
+                  <h3 class="text-lg font-bold text-slate-900">${escapeHtml(n.title)}</h3>
+                  <p class="text-sm text-slate-700 leading-relaxed">${escapeHtml(n.body)}</p>
+                </article>
+              `
+              )
+              .join("");
+
+        agendaEl.innerHTML = !state.agenda.length
+          ? `<div class="p-4 rounded-xl border border-slate-200 text-xs text-slate-600">Nenhum evento agendado no momento.</div>`
+          : state.agenda
+              .map(
+                (a) => `
+                <div class="p-4 rounded-xl border border-slate-200 bg-cmeBlue-50/50 space-y-1">
+                  <p class="text-xs font-bold text-cmeBlue-800">${escapeHtml(a.date)}</p>
+                  <p class="text-sm font-bold text-slate-900">${escapeHtml(a.title)}</p>
+                  <p class="text-xs text-slate-600">${escapeHtml(a.place)}</p>
+                </div>
+              `
+              )
+              .join("");
+      }
+
+      // Ombudsman Form & Protocol Lookup
+      document.getElementById("ombudsman-form").addEventListener("submit", (e) => {
+        e.preventDefault();
+        const category = document.getElementById("omb-category").value;
+        const nameInput = document.getElementById("omb-name").value.trim();
+        const name = nameInput || (category === "Denúncia/Irregularidade" ? "Anônimo (Preservado)" : "Cidadão(ã) de Juruá-AM");
+        const school = document.getElementById("omb-school").value.trim() || "Não informada";
+        const contact = document.getElementById("omb-contact").value.trim() || "Não informado";
+        const message = document.getElementById("omb-message").value.trim();
+
+        const randomNum = Math.floor(1000 + Math.random() * 9000);
+        const protocol = `OUV-CME-2026-${randomNum}`;
+        const today = new Date().toISOString().slice(0, 10);
+
+        state.ombudsman.unshift({
+          protocol,
+          category,
+          name,
+          school,
+          contact,
+          message,
+          createdAt: today,
+          status: "Em Análise pela Secretaria Executiva",
+          response: ""
+        });
+        saveState();
+        renderAdminOmbudsman();
+
+        const receipt = document.getElementById("ombudsman-receipt");
+        receipt.classList.remove("hidden");
+        document.getElementById("omb-receipt-code").textContent = `Protocolo: ${protocol}`;
+        document.getElementById("omb-receipt-summary").textContent = `Categoria: ${category} • Registrado em ${formatDateBr(today)} • Status: Em Análise pela Secretaria Executiva.`;
+
+        e.target.reset();
+        showToast(`Manifestação registrada sob protocolo ${protocol}.`);
+      });
+
+      document.getElementById("btn-omb-lookup").addEventListener("click", () => {
+        const code = document.getElementById("omb-lookup-input").value.trim().toUpperCase();
+        const out = document.getElementById("omb-lookup-result");
+        if (!code) {
+          out.innerHTML = `<p class="text-amber-800">Informe um número de protocolo (ex.: OUV-CME-2026-1042).</p>`;
+          return;
+        }
+        const found = state.ombudsman.find((o) => o.protocol.toUpperCase() === code);
+        if (!found) {
+          out.innerHTML = `<p class="text-red-700">Protocolo não encontrado nesta base.</p>`;
+          return;
+        }
+        out.innerHTML = `
+          <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
+            <p class="font-bold text-slate-900">${escapeHtml(found.protocol)} — <span class="text-cmeBlue-800">${escapeHtml(found.status)}</span></p>
+            <p><strong>Categoria:</strong> ${escapeHtml(found.category)} (${escapeHtml(formatDateBr(found.createdAt))})</p>
+            <p><strong>Manifestação:</strong> ${escapeHtml(found.message)}</p>
+            ${found.response ? `<p class="text-cmeGreen-900 pt-1"><strong>Resposta do CME:</strong> ${escapeHtml(found.response)}</p>` : ""}
+          </div>
+        `;
+      });
+
+      // Logo Upload / Reset in Admin
+      document.getElementById("input-logo-upload").addEventListener("change", (e) => {
+        const file = e.target.files && e.target.files[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = () => {
+          state.logoUrl = String(reader.result || "");
+          saveState();
+          applyLogo();
+          showToast("Pré-visualização da logo atualizada.");
+        };
+        reader.readAsDataURL(file);
+        e.target.value = "";
+      });
+
+      document.getElementById("btn-reset-logo").addEventListener("click", () => {
+        state.logoUrl = OFFICIAL_CME_LOGO_DATA_URI;
+        saveState();
+        applyLogo();
+        showToast("Emblema oficial do CME Juruá-AM restaurado.");
+      });
+
+      // Admin Panel Forms & Actions
+      document.getElementById("admin-act-form").addEventListener("submit", (e) => {
+        e.preventDefault();
+        const type = document.getElementById("adm-act-type").value;
+        const number = document.getElementById("adm-act-number").value.trim();
+        const date = document.getElementById("adm-act-date").value;
+        const category = document.getElementById("adm-act-category").value;
+        const approvalRef = document.getElementById("adm-act-approval-ref").value.trim();
+        const title = document.getElementById("adm-act-title").value.trim();
+        const rapporteur = document.getElementById("adm-act-rapporteur").value.trim();
+        const status = document.getElementById("adm-act-status").value;
+        const docUrl = document.getElementById("adm-act-doc-url").value.trim();
+        const body = document.getElementById("adm-act-body").value.trim();
+
+        state.acts.unshift({
+          id: "act-" + Date.now(),
+          type,
+          number,
+          year: date.slice(0, 4),
+          date,
+          category,
+          approvalRef,
+          title,
+          rapporteur,
+          status,
+          docUrl,
+          body
+        });
+        saveState();
+        renderAll();
+        e.target.reset();
+        showToast(`${type} nº ${number} publicada com sucesso.`);
+      });
+
+      document.getElementById("admin-school-form").addEventListener("submit", (e) => {
+        e.preventDefault();
+        const name = document.getElementById("adm-school-name").value.trim();
+        const zone = document.getElementById("adm-school-zone").value.trim() || "Juruá-AM";
+        const modalities = document.getElementById("adm-school-modalities").value.trim() || "Rede Municipal";
+        const status = document.getElementById("adm-school-status").value;
+        const approvalRef = document.getElementById("adm-school-approval-ref").value.trim();
+        const approvalDate = document.getElementById("adm-school-approval-date").value;
+        const pppUrl = document.getElementById("adm-school-ppp-url").value.trim();
+        const regimentUrl = document.getElementById("adm-school-regiment-url").value.trim();
+
+        const existing = state.schools.find((s) => s.name.toLowerCase() === name.toLowerCase());
+        if (existing) {
+          existing.zone = zone;
+          existing.modalities = modalities;
+          existing.status = status;
+          existing.approvalRef = approvalRef;
+          existing.approvalDate = approvalDate;
+          existing.pppUrl = pppUrl;
+          existing.regimentUrl = regimentUrl;
+        } else {
+          state.schools.unshift({
+            id: "school-" + Date.now(),
+            name,
+            zone,
+            modalities,
+            status,
+            approvalRef,
+            approvalDate,
+            pppUrl,
+            regimentUrl
+          });
+        }
+
+        state.kpis.monitoredSchools = state.schools.length;
+        saveState();
+        renderAll();
+        e.target.reset();
+        showToast(`Unidade escolar "${name}" salva com sucesso.`);
+      });
+
+      document.getElementById("admin-process-form").addEventListener("submit", (e) => {
+        e.preventDefault();
+        const code = document.getElementById("adm-proc-code").value.trim();
+        const status = document.getElementById("adm-proc-status").value;
+        const school = document.getElementById("adm-proc-school").value.trim();
+        const subject = document.getElementById("adm-proc-subject").value.trim();
+        const rapporteur = document.getElementById("adm-proc-rapporteur").value.trim();
+        const note = document.getElementById("adm-proc-note").value.trim();
+        const today = new Date().toISOString().slice(0, 10);
+
+        const existing = state.processes.find((p) => p.code.toLowerCase() === code.toLowerCase());
+        if (existing) {
+          existing.status = status;
+          existing.school = school;
+          existing.subject = subject;
+          existing.rapporteur = rapporteur;
+          existing.updatedAt = today;
+          existing.timeline = existing.timeline || [];
+          existing.timeline.push({ date: today, step: `${note} (Status: ${status})` });
+        } else {
+          state.processes.unshift({
+            code,
+            school,
+            subject,
+            rapporteur,
+            status,
+            updatedAt: today,
+            timeline: [{ date: today, step: `${note} (Status inicial: ${status})` }]
+          });
+        }
+
+        saveState();
+        renderAll();
+        e.target.reset();
+        showToast(`Processo ${code} salvo e atualizado.`);
+      });
+
+      document.getElementById("admin-news-form").addEventListener("submit", (e) => {
+        e.preventDefault();
+        const tag = document.getElementById("adm-news-tag").value;
+        const date = document.getElementById("adm-news-date").value;
+        const title = document.getElementById("adm-news-title").value.trim();
+        const body = document.getElementById("adm-news-body").value.trim();
+
+        state.news.unshift({
+          id: "news-" + Date.now(),
+          tag,
+          date,
+          title,
+          body
+        });
+        saveState();
+        renderAll();
+        e.target.reset();
+        showToast("Notícia/Convocação publicada no mural.");
+      });
+
+      function renderAdminOmbudsman() {
+        const box = document.getElementById("admin-ombudsman-list");
+        if (!state.ombudsman.length) {
+          box.innerHTML = `<p class="text-xs text-slate-500">Nenhuma manifestação registrada até o momento.</p>`;
+          return;
+        }
+        box.innerHTML = state.ombudsman
+          .map(
+            (o, idx) => `
+            <div class="p-3 rounded-xl bg-white border border-slate-200 space-y-2 text-xs">
+              <div class="flex items-center justify-between gap-2">
+                <span class="font-bold text-cmeBlue-800">${escapeHtml(o.protocol)} • ${escapeHtml(o.category)}</span>
+                <span class="px-2 py-0.5 rounded bg-slate-100 font-semibold">${escapeHtml(o.status)}</span>
+              </div>
+              <p class="text-slate-700">${escapeHtml(o.message)}</p>
+              <div class="flex gap-2">
+                <input type="text" placeholder="Escrever resposta oficial..." value="${escapeHtml(o.response || "")}"
+                  class="omb-resp-input flex-1 px-2.5 py-1.5 rounded-lg border border-slate-300 text-xs" />
+                <button type="button" data-omb-idx="${idx}"
+                  class="omb-resp-save px-3 py-1.5 rounded-lg bg-cmeGreen-700 text-white font-bold cursor-pointer">
+                  Salvar
+                </button>
+              </div>
+            </div>
+          `
+          )
+          .join("");
+
+        document.querySelectorAll(".omb-resp-save").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const idx = Number(btn.dataset.ombIdx);
+            const input = btn.parentElement.querySelector(".omb-resp-input");
+            const val = input.value.trim();
+            if (!val) {
+              showToast("Digite uma resposta antes de salvar.", "error");
+              return;
+            }
+            state.ombudsman[idx].response = val;
+            state.ombudsman[idx].status = "Respondido";
+            saveState();
+            renderAdminOmbudsman();
+            showToast(`Resposta registrada para ${state.ombudsman[idx].protocol}.`);
+          });
+        });
+      }
+
+      // Export / Import / Reset
+      document.getElementById("btn-export-json").addEventListener("click", () => {
+        const blob = new Blob([JSON.stringify(state, null, 2)], { type: "application/json" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "cme-jurua-am-backup.json";
+        a.click();
+        URL.revokeObjectURL(url);
+        showToast("Backup JSON exportado.");
+      });
+
+      document.getElementById("btn-export-csv").addEventListener("click", () => {
+        const headers = ["Tipo", "Numero", "Data", "Situacao", "Relator", "Titulo"];
+        const rows = state.acts.map((a) =>
+          [a.type, a.number, a.date, a.status, a.rapporteur, a.title]
+            .map((cell) => `"${String(cell ?? "").replace(/"/g, '""')}"`)
+            .join(",")
+        );
+        const csv = [headers.join(","), ...rows].join("\n");
+        const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "cme-jurua-atos-normativos.csv";
+        a.click();
+        URL.revokeObjectURL(url);
+        showToast("Atos normativos exportados em CSV.");
+      });
+
+      document.getElementById("input-import-json").addEventListener("change", (e) => {
+        const file = e.target.files && e.target.files[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = () => {
+          try {
+            const parsed = JSON.parse(String(reader.result));
+            state = { ...getDefaultState(), ...parsed };
+            saveState();
+            renderAll();
+            showToast("Base de dados importada com sucesso.");
+          } catch (err) {
+            showToast("Arquivo JSON inválido.", "error");
+          }
+        };
+        reader.readAsText(file);
+        e.target.value = "";
+      });
+
+      document.getElementById("btn-reset-demo").addEventListener("click", () => {
+        state = getDefaultState();
+        saveState();
+        renderAll();
+        showToast("Dados restaurados ao padrão legal de Juruá-AM.");
+      });
+
+      // Generate updated standalone index.html with current state embedded
+      document.getElementById("btn-generate-updated-html").addEventListener("click", () => {
+        try {
+          const fullHtml = "<!DOCTYPE html>\n" + document.documentElement.outerHTML;
+          const serializedState = JSON.stringify(state).replace(/<\/script>/gi, "<\\/script>");
+          const updatedHtml = fullHtml.replace(
+            /const EMBEDDED_SNAPSHOT = null;/,
+            `const EMBEDDED_SNAPSHOT = ${serializedState};`
+          );
+          const blob = new Blob([updatedHtml], { type: "text/html;charset=utf-8" });
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement("a");
+          a.href = url;
+          a.download = "index.html";
+          a.click();
+          URL.revokeObjectURL(url);
+          showToast("Arquivo index.html atualizado gerado e baixado para envio ao GitHub Pages.");
+        } catch (err) {
+          console.error("Erro ao gerar index.html atualizado:", err);
+          showToast("Não foi possível gerar o index.html atualizado.", "error");
+        }
+      });
+
+      function renderAll() {
+        applyLogo();
+        renderHome();
+        renderCouncilMembers();
+        renderSchoolsDirectory();
+        renderActs();
+        renderProcesses(document.getElementById("process-query").value);
+        renderMonitoring();
+        renderNewsAndAgendaPage();
+        renderAdminOmbudsman();
+      }
+
+      // Initialize
+      renderChecklist();
+      renderAll();
+    })();
+  </script>
+</body>
+</html>
