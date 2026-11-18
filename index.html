@@ -61,7 +61,6 @@
       outline-offset: 2px;
       border-radius: 6px;
     }
-    /* High Contrast Mode */
     body.high-contrast {
       background-color: #000000 !important;
       color: #ffffff !important;
@@ -77,12 +76,6 @@
     body.high-contrast .hc-muted {
       color: #e2e8f0 !important;
     }
-    body.high-contrast .hc-btn-primary {
-      background-color: #facc15 !important;
-      color: #000000 !important;
-      border-color: #facc15 !important;
-    }
-    /* Dark Mode Theme */
     body.dark-mode:not(.high-contrast) {
       background-color: #0b1120 !important;
       color: #e2e8f0 !important;
@@ -157,7 +150,12 @@
 </head>
 <body class="min-h-screen flex flex-col bg-slate-50 text-slate-900">
 
-  <!-- Acessibilidade Top Bar -->
+  <!-- Skip to Content -->
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 bg-cmeBlue-700 text-white px-4 py-2 rounded-lg font-semibold shadow-lg">
+    Ir para o conteúdo principal
+  </a>
+
+  <!-- Top Bar -->
   <div class="bg-cmeBlue-900 text-white text-xs sm:text-sm border-b border-cmeBlue-800 no-print">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 flex flex-wrap items-center justify-between gap-2">
       <div class="flex items-center gap-2 text-sky-100">
@@ -169,7 +167,9 @@
         <button id="btn-font-reset" type="button" class="px-2.5 py-1 rounded-md bg-cmeBlue-800 hover:bg-cmeBlue-700 text-white font-semibold">A</button>
         <button id="btn-font-inc" type="button" class="px-2.5 py-1 rounded-md bg-cmeBlue-800 hover:bg-cmeBlue-700 text-white font-semibold">A+</button>
         <button id="btn-high-contrast" type="button" class="px-2.5 py-1 rounded-md bg-cmeGreen-700 hover:bg-cmeGreen-600 text-white font-semibold">Alto Contraste</button>
-        <button id="btn-dark-mode" type="button" class="px-2.5 py-1 rounded-md bg-cmeBlue-800 hover:bg-cmeBlue-700 text-white font-semibold">Modo Escuro</button>
+        <button id="btn-dark-mode" type="button" class="px-2.5 py-1 rounded-md bg-cmeBlue-800 hover:bg-cmeBlue-700 text-white font-semibold flex items-center gap-1">
+          <span id="label-dark-mode">Modo Escuro</span>
+        </button>
       </div>
     </div>
   </div>
@@ -177,7 +177,7 @@
   <!-- Header -->
   <header class="bg-white border-b border-slate-200 shadow-sm sticky top-0 z-40 no-print">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center justify-between gap-4">
-      <button type="button" data-tab="inicio" class="nav-trigger flex items-center gap-3.5 text-left cursor-pointer">
+      <button type="button" data-tab="inicio" class="nav-trigger flex items-center gap-3.5 text-left cursor-pointer p-2 -m-2 rounded-2xl hover:bg-slate-50 transition">
         <div class="logo-tile w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-white p-1.5 border border-slate-200 shadow-sm flex items-center justify-center overflow-hidden">
           <img src="" data-cme-logo alt="Logo CME Juruá-AM" class="w-full h-full object-contain" />
         </div>
@@ -187,105 +187,213 @@
           <p class="text-xs text-slate-600 hidden sm:block">CME Juruá-AM • Normatização, Deliberação e Controle Social</p>
         </div>
       </button>
+
       <div class="hidden lg:flex items-center gap-2.5">
-        <button type="button" data-tab="servicos" class="nav-trigger px-3.5 py-2 rounded-xl text-sm font-semibold bg-cmeBlue-50 text-cmeBlue-800">Consultar Processo</button>
-        <button type="button" data-tab="admin" class="nav-trigger px-3.5 py-2 rounded-xl text-sm font-semibold bg-cmeGreen-700 text-white">Painel Gestor</button>
+        <button type="button" data-tab="servicos" class="nav-trigger px-3.5 py-2 rounded-xl text-sm font-semibold bg-cmeBlue-50 text-cmeBlue-800 hover:bg-cmeBlue-100">Consultar Processo</button>
+        <button type="button" data-tab="admin" class="nav-trigger px-3.5 py-2 rounded-xl text-sm font-semibold bg-cmeGreen-700 text-white hover:bg-cmeGreen-800 shadow-sm">Painel Gestor</button>
       </div>
-      <button id="btn-mobile-menu" type="button" class="lg:hidden p-2.5 rounded-xl border border-slate-200 text-slate-700">Menu</button>
+
+      <button id="btn-mobile-menu" type="button" aria-expanded="false" class="lg:hidden p-2.5 rounded-xl border border-slate-200 text-slate-700">Menu</button>
     </div>
+
     <nav aria-label="Navegação Principal" class="hidden lg:block border-t border-slate-100 bg-slate-50/80">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 flex items-center gap-1.5 overflow-x-auto">
-        <button type="button" data-tab="inicio" class="nav-trigger tab-active px-3.5 py-2 rounded-xl text-sm font-semibold">Início</button>
-        <button type="button" data-tab="conselho" class="nav-trigger px-3.5 py-2 rounded-xl text-sm font-semibold text-slate-700">O Conselho</button>
-        <button type="button" data-tab="legislacao" class="nav-trigger px-3.5 py-2 rounded-xl text-sm font-semibold text-slate-700">Legislação e Atos</button>
-        <button type="button" data-tab="servicos" class="nav-trigger px-3.5 py-2 rounded-xl text-sm font-semibold text-slate-700">Serviços às Escolas e Processos</button>
-        <button type="button" data-tab="controle" class="nav-trigger px-3.5 py-2 rounded-xl text-sm font-semibold text-slate-700">Controle Social</button>
-        <button type="button" data-tab="noticias" class="nav-trigger px-3.5 py-2 rounded-xl text-sm font-semibold text-slate-700">Notícias e Agenda</button>
-        <button type="button" data-tab="ouvidoria" class="nav-trigger px-3.5 py-2 rounded-xl text-sm font-semibold text-slate-700">Ouvidoria</button>
-        <button type="button" data-tab="admin" class="nav-trigger px-3.5 py-2 rounded-xl text-sm font-semibold bg-cmeGreen-50 text-cmeGreen-800 ml-auto">Painel Administrativo</button>
+        <button type="button" data-tab="inicio" class="nav-trigger tab-active px-3.5 py-2 rounded-xl text-sm font-semibold cursor-pointer">Início</button>
+        <button type="button" data-tab="conselho" class="nav-trigger px-3.5 py-2 rounded-xl text-sm font-semibold text-slate-700 hover:bg-white hover:text-cmeBlue-700 cursor-pointer">O Conselho</button>
+        <button type="button" data-tab="legislacao" class="nav-trigger px-3.5 py-2 rounded-xl text-sm font-semibold text-slate-700 hover:bg-white hover:text-cmeBlue-700 cursor-pointer">Legislação e Atos</button>
+        <button type="button" data-tab="servicos" class="nav-trigger px-3.5 py-2 rounded-xl text-sm font-semibold text-slate-700 hover:bg-white hover:text-cmeBlue-700 cursor-pointer">Serviços às Escolas e Processos</button>
+        <button type="button" data-tab="controle" class="nav-trigger px-3.5 py-2 rounded-xl text-sm font-semibold text-slate-700 hover:bg-white hover:text-cmeBlue-700 cursor-pointer">Controle Social</button>
+        <button type="button" data-tab="noticias" class="nav-trigger px-3.5 py-2 rounded-xl text-sm font-semibold text-slate-700 hover:bg-white hover:text-cmeBlue-700 cursor-pointer">Notícias e Agenda</button>
+        <button type="button" data-tab="ouvidoria" class="nav-trigger px-3.5 py-2 rounded-xl text-sm font-semibold text-slate-700 hover:bg-white hover:text-cmeBlue-700 cursor-pointer">Ouvidoria</button>
+        <button type="button" data-tab="admin" class="nav-trigger px-3.5 py-2 rounded-xl text-sm font-semibold bg-cmeGreen-50 text-cmeGreen-800 ml-auto cursor-pointer">Painel Administrativo</button>
       </div>
     </nav>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-nav-drawer" class="lg:hidden hidden border-t border-slate-200 bg-white px-4 pt-3 pb-5 space-y-1.5 shadow-lg">
+      <button type="button" data-tab="inicio" class="nav-trigger tab-active w-full text-left px-4 py-3 rounded-xl text-sm font-semibold">Início</button>
+      <button type="button" data-tab="conselho" class="nav-trigger w-full text-left px-4 py-3 rounded-xl text-sm font-semibold text-slate-700">O Conselho</button>
+      <button type="button" data-tab="legislacao" class="nav-trigger w-full text-left px-4 py-3 rounded-xl text-sm font-semibold text-slate-700">Legislação e Atos</button>
+      <button type="button" data-tab="servicos" class="nav-trigger w-full text-left px-4 py-3 rounded-xl text-sm font-semibold text-slate-700">Serviços às Escolas e Processos</button>
+      <button type="button" data-tab="controle" class="nav-trigger w-full text-left px-4 py-3 rounded-xl text-sm font-semibold text-slate-700">Controle Social</button>
+      <button type="button" data-tab="noticias" class="nav-trigger w-full text-left px-4 py-3 rounded-xl text-sm font-semibold text-slate-700">Notícias e Agenda</button>
+      <button type="button" data-tab="ouvidoria" class="nav-trigger w-full text-left px-4 py-3 rounded-xl text-sm font-semibold text-slate-700">Ouvidoria</button>
+      <button type="button" data-tab="admin" class="nav-trigger w-full text-left px-4 py-3 rounded-xl text-sm font-semibold bg-cmeGreen-50 text-cmeGreen-800">Painel Administrativo</button>
+    </div>
   </header>
 
   <div id="toast-container" class="fixed bottom-5 right-5 z-50 max-w-md w-[calc(100%-2.5rem)] space-y-2 no-print"></div>
 
-  <!-- Conteúdo Principal -->
-  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+  <!-- Main Content -->
+  <main id="main-content" class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+
+    <!-- 1. INÍCIO -->
     <section id="section-inicio" class="page-section space-y-8">
-      <div class="rounded-3xl bg-gradient-to-br from-cmeGreen-800 via-cmeGreen-700 to-cmeBlue-800 text-white p-6 sm:p-10 shadow-xl">
-        <h2 class="text-2xl sm:text-4xl font-extrabold mb-3">Conselho Municipal de Educação de Juruá — Amazonas</h2>
-        <p class="text-sky-100 text-sm sm:text-base max-w-2xl mb-6">Órgão normativo, consultivo, deliberativo e fiscalizador criado pela Lei nº 297/2003 e atualizado pela Lei nº 367/2009.</p>
-        <button type="button" data-tab="legislacao" class="nav-trigger px-5 py-3 rounded-xl bg-white text-cmeBlue-900 font-bold text-sm">Ver Legislação Completa</button>
+      <div class="rounded-3xl bg-gradient-to-br from-cmeGreen-800 via-cmeGreen-700 to-cmeBlue-800 text-white p-6 sm:p-10 shadow-xl relative overflow-hidden">
+        <div class="relative z-10 space-y-4 max-w-2xl">
+          <span class="px-3 py-1 rounded-full bg-white/15 text-emerald-100 text-xs font-semibold">Gestão Democrática &amp; Transparência</span>
+          <h2 class="text-2xl sm:text-4xl font-extrabold leading-tight">Conselho Municipal de Educação de Juruá — Amazonas</h2>
+          <p class="text-sky-100 text-sm sm:text-base leading-relaxed">
+            Órgão do Sistema Municipal de Ensino com função normativa, consultiva, deliberativa e fiscalizadora (Lei nº 297/2003 e Lei nº 367/2009).
+          </p>
+          <div class="flex flex-wrap gap-3 pt-2">
+            <button type="button" data-tab="legislacao" class="nav-trigger px-5 py-3 rounded-xl bg-white text-cmeBlue-900 font-bold text-sm cursor-pointer">Ver Legislação e Atos</button>
+            <button type="button" data-tab="servicos" class="nav-trigger px-5 py-3 rounded-xl bg-cmeBlue-900/70 text-white font-semibold text-sm border border-white/25 cursor-pointer">Consultar Escolas (30 Unidades)</button>
+          </div>
+        </div>
       </div>
+      <div id="home-kpis" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"></div>
     </section>
 
+    <!-- 2. O CONSELHO -->
     <section id="section-conselho" class="page-section hidden space-y-6">
-      <div class="bg-white p-6 rounded-2xl border border-slate-200">
-        <h2 class="text-2xl font-bold mb-4">O Conselho e Composição</h2>
-        <p class="text-sm text-slate-600">Composição legal de 7 membros titulares e suplentes (Lei nº 367/2009, art. 6º), com Mesa Diretora liderada pelo Presidente Chánxaro Marcos dos Santos Rodrigues e Vice Analice de Amorim dos Santos (Decreto nº 041/2026).</p>
+      <div class="bg-white hc-card rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-4">
+        <h2 class="text-2xl font-extrabold text-slate-900">O Conselho e Composição Legal (7 Membros)</h2>
+        <p class="text-sm text-slate-600">Mesa Diretora com o Presidente <strong>Chánxaro Marcos dos Santos Rodrigues</strong> e Vice <strong>Analice de Amorim dos Santos</strong> (Decreto nº 041/2026).</p>
+        <div id="council-members-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 pt-4"></div>
       </div>
     </section>
 
+    <!-- 3. LEGISLAÇÃO E ATOS -->
     <section id="section-legislacao" class="page-section hidden space-y-6">
-      <div class="bg-white p-6 rounded-2xl border border-slate-200">
-        <h2 class="text-2xl font-bold mb-4">Legislação e Atos Normativos</h2>
-        <div id="acts-list" class="space-y-3"></div>
+      <div class="bg-white hc-card rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-6">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 pb-4">
+          <h2 class="text-2xl font-extrabold text-slate-900">Legislação e Atos Normativos</h2>
+          <span id="acts-count-badge" class="px-3.5 py-1.5 rounded-xl bg-cmeBlue-50 text-cmeBlue-800 text-xs font-bold">0 atos</span>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 bg-slate-50 p-4 rounded-xl">
+          <input id="acts-search" type="search" placeholder="Buscar ato..." class="px-3 py-2 rounded-xl border border-slate-300 bg-white text-sm" />
+          <select id="acts-type-filter" class="px-3 py-2 rounded-xl border border-slate-300 bg-white text-sm">
+            <option value="Todos">Todos os tipos</option>
+            <option value="Lei Municipal">Lei Municipal</option>
+            <option value="Resolução">Resolução</option>
+            <option value="Portaria">Portaria</option>
+            <option value="Regimento Interno">Regimento Interno</option>
+          </select>
+        </div>
+        <div id="acts-list" class="space-y-3.5"></div>
       </div>
     </section>
 
+    <!-- 4. SERVIÇOS ÀS ESCOLAS -->
     <section id="section-servicos" class="page-section hidden space-y-6">
-      <div class="bg-white p-6 rounded-2xl border border-slate-200">
-        <h2 class="text-2xl font-bold mb-4">Escolas, PPPs e Regimentos Escolares (30 Unidades Homologadas)</h2>
+      <div class="bg-white hc-card rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-6">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 pb-4">
+          <div>
+            <h2 class="text-2xl font-extrabold text-slate-900">Rede Municipal — 30 Escolas Homologadas</h2>
+            <p class="text-sm text-slate-600">PPP e Regimentos Escolares aprovados pela Resolução CME nº 008/2026.</p>
+          </div>
+          <span id="schools-count-badge" class="px-3.5 py-1.5 rounded-xl bg-cmeGreen-50 text-cmeGreen-800 text-xs font-bold">30 escolas</span>
+        </div>
         <div id="schools-directory-list" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
       </div>
     </section>
 
+    <!-- 5. CONTROLE SOCIAL -->
     <section id="section-controle" class="page-section hidden space-y-6">
-      <div class="bg-white p-6 rounded-2xl border border-slate-200">
-        <h2 class="text-2xl font-bold mb-4">Controle Social e Monitoramento</h2>
-        <p class="text-sm text-slate-600">Acompanhamento de metas do PME (Lei nº 418/2015) e programas educacionais em Juruá-AM.</p>
+      <div class="bg-white hc-card rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-4">
+        <h2 class="text-2xl font-extrabold text-slate-900">Controle Social e Monitoramento</h2>
+        <p class="text-sm text-slate-600">Acompanhamento das metas do Plano Municipal de Educação (Lei nº 418/2015) e programas da SEMED e CACS/FUNDEB.</p>
       </div>
     </section>
 
+    <!-- 6. NOTÍCIAS -->
     <section id="section-noticias" class="page-section hidden space-y-6">
-      <div class="bg-white p-6 rounded-2xl border border-slate-200">
-        <h2 class="text-2xl font-bold mb-4">Notícias e Agenda</h2>
+      <div class="bg-white hc-card rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-4">
+        <h2 class="text-2xl font-extrabold text-slate-900">Notícias e Agenda</h2>
       </div>
     </section>
 
+    <!-- 7. OUVIDORIA -->
     <section id="section-ouvidoria" class="page-section hidden space-y-6">
-      <div class="bg-white p-6 rounded-2xl border border-slate-200">
-        <h2 class="text-2xl font-bold mb-4">Ouvidoria</h2>
+      <div class="bg-white hc-card rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-4">
+        <h2 class="text-2xl font-extrabold text-slate-900">Ouvidoria e Contato</h2>
       </div>
     </section>
 
+    <!-- 8. ADMIN -->
     <section id="section-admin" class="page-section hidden space-y-6">
-      <div class="bg-white p-6 rounded-2xl border border-slate-200">
-        <h2 class="text-2xl font-bold mb-4">Painel Administrativo</h2>
+      <div class="bg-white hc-card rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-4">
+        <h2 class="text-2xl font-extrabold text-slate-900">Painel Administrativo</h2>
+        <button type="button" id="btn-generate-updated-html" class="px-4 py-2 rounded-xl bg-cmeGreen-700 text-white font-bold text-xs cursor-pointer">
+          Gerar index.html Atualizado para GitHub Pages
+        </button>
       </div>
     </section>
+
   </main>
 
-  <footer class="bg-cmeBlue-900 text-sky-100 mt-12 py-6 text-center text-xs">
-    <p>Prefeitura Municipal de Juruá — AM • CME Juruá</p>
+  <!-- Footer -->
+  <footer class="bg-cmeBlue-900 text-sky-100 mt-12 border-t border-cmeBlue-800 no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 text-center text-xs">
+      <p>Prefeitura Municipal de Juruá — Rua Francisco de Paula, 98, Centro, Juruá/AM • CME Juruá</p>
+    </div>
   </footer>
 
   <script>
     (function () {
-      const STORAGE_KEY = "cme_jurua_am_portal_v4";
-      const OFFICIAL_CME_LOGO_URI = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 440" width="400" height="440"><rect width="400" height="440" rx="36" fill="#15803d"/><text x="200" y="220" fill="#fff" font-size="32" text-anchor="middle" font-family="sans-serif">CME JURUÁ</text></svg>`);
+      const STORAGE_KEY = "cme_jurua_am_portal_v4_full";
+
+      const OFFICIAL_LOGO = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(`
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 440" width="400" height="440">
+          <rect width="400" height="440" rx="36" fill="#ffffff"/>
+          <circle cx="200" cy="220" r="160" fill="#15803d"/>
+          <text x="200" y="210" text-anchor="middle" font-family="sans-serif" font-weight="900" font-size="34" fill="#ffffff">CME JURUÁ</text>
+          <text x="200" y="250" text-anchor="middle" font-family="sans-serif" font-weight="700" font-size="20" fill="#d1fae5">AMAZONAS</text>
+        </svg>
+      `);
 
       function getDefaultState() {
         return {
-          logoUrl: OFFICIAL_CME_LOGO_URI,
+          logoUrl: OFFICIAL_LOGO,
           schools: [
-            { id: "school-dalila", name: "Escola Municipal Dalila Litaiff", zone: "Juruá-AM", modalities: "Educação Infantil e Ensino Fundamental", status: "Aprovado", approvalRef: "Resolução CME nº 008/2026" },
-            { id: "school-ataide", name: "Escola Municipal Pró-Infância Ataíde Nobre Dias Ferreira", zone: "Juruá-AM", modalities: "Educação Infantil", status: "Aprovado", approvalRef: "Resolução CME nº 008/2026" },
-            { id: "school-sao-jose", name: "Escola Municipal São José", zone: "Juruá-AM", modalities: "Educação Infantil e Ensino Fundamental", status: "Aprovado", approvalRef: "Resolução CME nº 008/2026" }
+            { name: "Escola Municipal Dalila Litaiff", zone: "Juruá-AM", modalities: "Educação Infantil e Ensino Fundamental", status: "Aprovado", approvalRef: "Resolução CME nº 008/2026" },
+            { name: "Escola Municipal Pró-Infância Ataíde Nobre Dias Ferreira", zone: "Juruá-AM", modalities: "Educação Infantil", status: "Aprovado", approvalRef: "Resolução CME nº 008/2026" },
+            { name: "Escola Municipal Pró-Infância Raimundo Cassimiro Damasceno", zone: "Juruá-AM", modalities: "Educação Infantil", status: "Aprovado", approvalRef: "Resolução CME nº 008/2026" },
+            { name: "Escola Municipal Ducílio de Oliveira Rocha Filho", zone: "Juruá-AM", modalities: "Ensino Fundamental", status: "Aprovado", approvalRef: "Resolução CME nº 008/2026" },
+            { name: "Escola Municipal São José", zone: "Juruá-AM", modalities: "Educação Infantil e Ensino Fundamental", status: "Aprovado", approvalRef: "Resolução CME nº 008/2026" },
+            { name: "Escola Municipal Nossa Senhora de Nazaré", zone: "Juruá-AM", modalities: "Ensino Fundamental", status: "Aprovado", approvalRef: "Resolução CME nº 008/2026" },
+            { name: "Escola Municipal Maria Suely de Lima Cabral", zone: "Juruá-AM", modalities: "Ensino Fundamental", status: "Aprovado", approvalRef: "Resolução CME nº 008/2026" },
+            { name: "Escola Municipal Vila Nova", zone: "Juruá-AM", modalities: "Ensino Fundamental", status: "Aprovado", approvalRef: "Resolução CME nº 008/2026" },
+            { name: "Escola Municipal José Pontes", zone: "Juruá-AM", modalities: "Ensino Fundamental", status: "Aprovado", approvalRef: "Resolução CME nº 008/2026" },
+            { name: "Escola Municipal Santa Cláudia", zone: "Juruá-AM", modalities: "Ensino Fundamental", status: "Aprovado", approvalRef: "Resolução CME nº 008/2026" },
+            { name: "Escola Municipal Pedro Paulo da Silva", zone: "Juruá-AM", modalities: "Ensino Fundamental", status: "Aprovado", approvalRef: "Resolução CME nº 008/2026" },
+            { name: "Escola Municipal Manoel Guilherme", zone: "Juruá-AM", modalities: "Ensino Fundamental", status: "Aprovado", approvalRef: "Resolução CME nº 008/2026" },
+            { name: "Escola Municipal São Francisco", zone: "Juruá-AM", modalities: "Ensino Fundamental", status: "Aprovado", approvalRef: "Resolução CME nº 008/2026" },
+            { name: "Escola Municipal São Luiz Gonzaga", zone: "Juruá-AM", modalities: "Ensino Fundamental", status: "Aprovado", approvalRef: "Resolução CME nº 008/2026" },
+            { name: "Escola Municipal Leonel", zone: "Juruá-AM", modalities: "Ensino Fundamental", status: "Aprovado", approvalRef: "Resolução CME nº 008/2026" },
+            { name: "Escola Municipal Raimundo Batalha", zone: "Juruá-AM", modalities: "Ensino Fundamental", status: "Aprovado", approvalRef: "Resolução CME nº 008/2026" },
+            { name: "Escola Municipal Augusto Lima", zone: "Juruá-AM", modalities: "Ensino Fundamental", status: "Aprovado", approvalRef: "Resolução CME nº 008/2026" },
+            { name: "Escola Municipal Brasília", zone: "Juruá-AM", modalities: "Ensino Fundamental", status: "Aprovado", approvalRef: "Resolução CME nº 008/2026" },
+            { name: "Escola Municipal Nossa Senhora do Rosário", zone: "Juruá-AM", modalities: "Ensino Fundamental", status: "Aprovado", approvalRef: "Resolução CME nº 008/2026" },
+            { name: "Escola Municipal Alexandre Amorim", zone: "Juruá-AM", modalities: "Ensino Fundamental", status: "Aprovado", approvalRef: "Resolução CME nº 008/2026" },
+            { name: "Escola Municipal Edson Jaciguara", zone: "Juruá-AM", modalities: "Ensino Fundamental", status: "Aprovado", approvalRef: "Resolução CME nº 008/2026" },
+            { name: "Escola Municipal Nossa Senhora de Fátima", zone: "Juruá-AM", modalities: "Ensino Fundamental", status: "Aprovado", approvalRef: "Resolução CME nº 008/2026" },
+            { name: "Escola Municipal 15 de Novembro", zone: "Juruá-AM", modalities: "Ensino Fundamental", status: "Aprovado", approvalRef: "Resolução CME nº 008/2026" },
+            { name: "Escola Municipal Boa Esperança", zone: "Juruá-AM", modalities: "Ensino Fundamental", status: "Aprovado", approvalRef: "Resolução CME nº 008/2026" },
+            { name: "Escola Municipal Mestre Rufino", zone: "Juruá-AM", modalities: "Ensino Fundamental", status: "Aprovado", approvalRef: "Resolução CME nº 008/2026" },
+            { name: "Escola Municipal Tertuliano Carlos de Araújo", zone: "Juruá-AM", modalities: "Ensino Fundamental", status: "Aprovado", approvalRef: "Resolução CME nº 008/2026" },
+            { name: "Escola Municipal Todos os Santos", zone: "Juruá-AM", modalities: "Ensino Fundamental", status: "Aprovado", approvalRef: "Resolução CME nº 008/2026" },
+            { name: "Escola Municipal Indígena Coridsa", zone: "Juruá-AM", modalities: "Educação Escolar Indígena", status: "Aprovado", approvalRef: "Resolução CME nº 008/2026" },
+            { name: "Escola Municipal Indígena Morada Nova", zone: "Juruá-AM", modalities: "Educação Escolar Indígena", status: "Aprovado", approvalRef: "Resolução CME nº 008/2026" },
+            { name: "Escola Municipal Indígena Dsodsoriride", zone: "Juruá-AM", modalities: "Educação Escolar Indígena", status: "Aprovado", approvalRef: "Resolução CME nº 008/2026" }
+          ],
+          members: [
+            { segment: "Poder Público", name: "Representante da SEMED", role: "Titular / Suplente" },
+            { segment: "Pais/Responsáveis", name: "Representante da APMC", role: "Titular / Suplente" },
+            { segment: "Sociedade Civil", name: "Representante do CACS/FUNDEB", role: "Titular / Suplente" },
+            { segment: "Poder Público", name: "Representante da SEDUC-AM", role: "Titular / Suplente" },
+            { segment: "Sociedade Civil", name: "Representante do Conselho Tutelar", role: "Titular / Suplente" },
+            { segment: "Magistério", name: "Representante do Sindicato dos Professores", role: "Titular / Suplente" },
+            { segment: "Poder Público", name: "Representante de Assistência Social", role: "Titular / Suplente" }
           ],
           acts: [
-            { id: "act-041", type: "Portaria", number: "041/2026", date: "2026-11-09", title: "Decreto nº 041/2026 — Nomeia Presidente Chánxaro Marcos dos Santos Rodrigues e Vice Analice de Amorim dos Santos", status: "Vigente" },
-            { id: "act-res-007", type: "Resolução", number: "007/2026", date: "2026-10-29", title: "Resolução CME nº 007/2026 — Aprova os Referenciais Curriculares e Proposta Curricular", status: "Vigente" }
+            { type: "Portaria", number: "041/2026", date: "2026-11-09", category: "Criação e Organização", title: "Decreto nº 041/2026 — Nomeia Presidente Chánxaro Marcos dos Santos Rodrigues e Vice Analice de Amorim dos Santos", rapporteur: "Gabinete do Prefeito", status: "Vigente", body: "Nomeia Mesa Diretora do CME com efeitos retroativos a 14/10/2025." },
+            { type: "Portaria", number: "042/2025", date: "2025-10-10", category: "Criação e Organização", title: "Decreto nº 042/2025 — Nomeia membros do Conselho Municipal de Educação", rapporteur: "Gabinete do Prefeito", status: "Vigente", body: "Nomeia os conselheiros titulares e suplentes do CME de Juruá." },
+            { type: "Resolução", number: "007/2026", date: "2026-10-29", category: "Currículo Municipal", title: "Resolução CME nº 007/2026 — Aprova os Referenciais Curriculares Municipais (Volumes 1, 2 e 3)", rapporteur: "Presidência CME", status: "Vigente", body: "Aprova os Referenciais Curriculares da Rede Municipal." },
+            { type: "Resolução", number: "008/2026", date: "2026-10-29", category: "Normas Gerais", title: "Resolução CME nº 008/2026 — Homologa os PPPs e Regimentos Escolares de 30 unidades da Rede Municipal", rapporteur: "Presidência CME", status: "Vigente", body: "Homologa o PPP e Regimento de 30 escolas da rede." },
+            { type: "Lei Municipal", number: "418/2015", date: "2015-06-29", category: "Normas Gerais", title: "Lei Municipal nº 418/2015 — Aprova o Plano Municipal de Educação (PME) de Juruá", rapporteur: "Prefeitura Municipal", status: "Vigente", body: "Aprova o PME com vigência de 10 anos." },
+            { type: "Lei Municipal", number: "297/2003", date: "2003-04-16", category: "Criação e Organização", title: "Lei Municipal nº 297/2003 — Cria o Conselho Municipal de Educação de Juruá", rapporteur: "Prefeitura Municipal", status: "Vigente", body: "Cria o CME como órgão do Sistema Municipal de Ensino." }
           ]
         };
       }
@@ -300,6 +408,10 @@
         document.querySelectorAll(".page-section").forEach(sec => sec.classList.add("hidden"));
         const target = document.getElementById(`section-${tabName}`);
         if (target) target.classList.remove("hidden");
+        document.querySelectorAll(".nav-trigger").forEach(btn => {
+          if (btn.dataset.tab === tabName) btn.classList.add("tab-active");
+          else btn.classList.remove("tab-active");
+        });
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }
 
@@ -307,31 +419,104 @@
         btn.addEventListener("click", () => setActiveTab(btn.dataset.tab));
       });
 
+      // Render Home KPIs
+      function renderHome() {
+        const kpis = document.getElementById("home-kpis");
+        if (!kpis) return;
+        kpis.innerHTML = `
+          <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm border-l-4 border-l-cmeGreen-700">
+            <p class="text-xs font-semibold text-slate-500">Atos Normativos</p>
+            <p class="text-3xl font-extrabold text-slate-900 mt-1">${state.acts.length}</p>
+          </div>
+          <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm border-l-4 border-l-cmeBlue-700">
+            <p class="text-xs font-semibold text-slate-500">Escolas Homologadas</p>
+            <p class="text-3xl font-extrabold text-slate-900 mt-1">${state.schools.length}</p>
+          </div>
+          <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm border-l-4 border-l-cmeGreen-600">
+            <p class="text-xs font-semibold text-slate-500">Plenário</p>
+            <p class="text-3xl font-extrabold text-slate-900 mt-1">7 Membros</p>
+          </div>
+          <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm border-l-4 border-l-cmeBlue-600">
+            <p class="text-xs font-semibold text-slate-500">Mesa Diretora</p>
+            <p class="text-sm font-extrabold text-slate-900 mt-2">Chánxaro &amp; Analice</p>
+          </div>
+        `;
+      }
+
+      // Render Council
+      function renderCouncil() {
+        const grid = document.getElementById("council-members-grid");
+        if (!grid) return;
+        grid.innerHTML = state.members.map(m => `
+          <div class="p-4 rounded-xl border border-slate-200 bg-slate-50">
+            <span class="px-2 py-0.5 rounded text-[11px] font-bold bg-cmeBlue-100 text-cmeBlue-900">${m.segment}</span>
+            <h4 class="font-bold text-slate-900 text-sm mt-1">${m.name}</h4>
+            <p class="text-xs text-slate-600">${m.role}</p>
+          </div>
+        `).join("");
+      }
+
+      // Render Acts
+      function renderActs() {
+        const list = document.getElementById("acts-list");
+        const badge = document.getElementById("acts-count-badge");
+        if (!list) return;
+        badge.textContent = `${state.acts.length} atos`;
+        list.innerHTML = state.acts.map(a => `
+          <div class="p-4 rounded-xl border border-slate-200 bg-white space-y-1">
+            <div class="flex items-center gap-2 text-xs">
+              <span class="px-2 py-0.5 rounded bg-cmeBlue-100 text-cmeBlue-900 font-bold">${a.type} nº ${a.number}</span>
+              <span class="text-slate-500">${a.date}</span>
+            </div>
+            <h3 class="font-bold text-slate-900 text-sm">${a.title}</h3>
+            <p class="text-xs text-slate-600">${a.body}</p>
+          </div>
+        `).join("");
+      }
+
+      // Render Schools
       function renderSchools() {
         const list = document.getElementById("schools-directory-list");
         if (!list) return;
         list.innerHTML = state.schools.map(s => `
-          <div class="p-4 rounded-xl border border-slate-200 bg-slate-50">
-            <h4 class="font-bold text-slate-900">${s.name}</h4>
-            <p class="text-xs text-slate-600">${s.modalities} • ${s.approvalRef}</p>
+          <div class="p-4 rounded-2xl border border-slate-200 bg-slate-50 space-y-2">
+            <div class="flex justify-between items-start">
+              <h4 class="font-bold text-slate-900 text-sm">${s.name}</h4>
+              <span class="px-2 py-0.5 rounded-full text-xs font-bold bg-emerald-100 text-emerald-900">${s.status}</span>
+            </div>
+            <p class="text-xs text-slate-600">${s.modalities} • ${s.zone}</p>
+            <p class="text-xs font-semibold text-cmeGreen-800">Aprovação: ${s.approvalRef}</p>
           </div>
         `).join("");
       }
 
-      function renderActs() {
-        const list = document.getElementById("acts-list");
-        if (!list) return;
-        list.innerHTML = state.acts.map(a => `
-          <div class="p-3 rounded-lg border border-slate-200 bg-slate-50">
-            <p class="font-bold text-sm">${a.title}</p>
-            <span class="text-xs text-slate-500">${a.type} nº ${a.number}</span>
-          </div>
-        `).join("");
-      }
+      // Generate Updated HTML for GitHub
+      document.getElementById("btn-generate-updated-html").addEventListener("click", () => {
+        const html = "<!DOCTYPE html>\n" + document.documentElement.outerHTML;
+        const blob = new Blob([html], { type: "text/html;charset=utf-8" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "index.html";
+        a.click();
+        URL.revokeObjectURL(url);
+        alert("index.html atualizado gerado com sucesso! Salve-o no seu repositório do GitHub Pages.");
+      });
+
+      // Dark Mode & Contrast Toggles
+      document.getElementById("btn-dark-mode").addEventListener("click", () => {
+        const dark = document.body.classList.toggle("dark-mode");
+        document.getElementById("label-dark-mode").textContent = dark ? "Modo Claro" : "Modo Escuro";
+      });
+      document.getElementById("btn-high-contrast").addEventListener("click", () => {
+        document.body.classList.toggle("high-contrast");
+      });
 
       applyLogo();
-      renderSchools();
+      renderHome();
+      renderCouncil();
       renderActs();
+      renderSchools();
     })();
   </script>
 </body>
