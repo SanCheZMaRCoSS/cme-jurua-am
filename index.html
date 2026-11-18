@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CME — Conselho Municipal de Educação | Juruá - AM (Legislação, Decretos e Atos)</title>
+  <title>CME — Conselho Municipal de Educação | Juruá - AM</title>
   <link id="cme-favicon" rel="icon" type="image/svg+xml" href="" />
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -556,7 +556,7 @@
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 pb-4">
           <div>
             <span class="text-xs font-bold uppercase tracking-wider text-cmeGreen-700">Acervo Normativo</span>
-            <h2 class="text-2xl font-extrabold text-slate-900 mt-1">Legislação, Decretos, Resoluções, Pareceres e Atas</h2>
+            <h2 class="text-2xl font-extrabold text-slate-900 mt-1">Legislação, Resoluções, Pareceres e Atas</h2>
             <p class="text-sm text-slate-600 hc-muted">
               Pesquise atos oficiais do CME de Juruá-AM, visualize a íntegra/ementa e gere cópia para impressão ou arquivo.
             </p>
@@ -576,8 +576,6 @@
             <label for="acts-type-filter" class="block text-xs font-bold text-slate-700 mb-1">Tipo de Ato</label>
             <select id="acts-type-filter" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white text-sm text-slate-900">
               <option value="Todos">Todos os tipos</option>
-              <option value="Decreto">Decreto</option>
-              <option value="Decreto de Nomeação">Decreto de Nomeação</option>
               <option value="Lei Municipal">Lei Municipal</option>
               <option value="Regimento Interno">Regimento Interno</option>
               <option value="Resolução">Resolução</option>
@@ -934,14 +932,12 @@
           <form id="admin-act-form" class="p-5 rounded-2xl border border-slate-200 bg-slate-50/60 space-y-3.5">
             <h3 class="font-bold text-slate-900 text-base flex items-center gap-2">
               <span class="w-2 h-2 rounded-full bg-cmeGreen-700"></span>
-              <span>(a) Publicar Decreto / Resolução / Parecer / Ata / Lei / Regimento</span>
+              <span>(a) Publicar Resolução / Parecer / Ata / Lei / Regimento</span>
             </h3>
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
               <div>
                 <label for="adm-act-type" class="block text-xs font-semibold text-slate-700 mb-1">Tipo</label>
                 <select id="adm-act-type" class="w-full px-3 py-2 rounded-xl border border-slate-300 bg-white text-sm">
-                  <option value="Decreto">Decreto</option>
-                  <option value="Decreto de Nomeação">Decreto de Nomeação</option>
                   <option value="Resolução">Resolução</option>
                   <option value="Parecer">Parecer</option>
                   <option value="Ata">Ata</option>
@@ -953,7 +949,7 @@
               </div>
               <div>
                 <label for="adm-act-number" class="block text-xs font-semibold text-slate-700 mb-1">Número/Ano</label>
-                <input id="adm-act-number" type="text" required placeholder="Ex.: 012/2026 ou 001/2026"
+                <input id="adm-act-number" type="text" required placeholder="Ex.: 001/2026"
                   class="w-full px-3 py-2 rounded-xl border border-slate-300 bg-white text-sm" />
               </div>
               <div>
@@ -970,7 +966,6 @@
                   <option value="Currículo Municipal — Ensino Fundamental">Currículo Municipal — Ensino Fundamental</option>
                   <option value="Currículo Municipal — EJA">Currículo Municipal — EJA</option>
                   <option value="Currículo Municipal — Proposta Municipal">Currículo Municipal — Proposta Municipal</option>
-                  <option value="Decretos do Executivo / Nomeação">Decretos do Executivo / Nomeação</option>
                   <option value="Criação e Organização do CME">Criação e Organização do CME</option>
                   <option value="Atas de Reunião">Atas de Reunião</option>
                   <option value="Normas Gerais">Normas Gerais</option>
@@ -984,7 +979,7 @@
             </div>
             <div>
               <label for="adm-act-title" class="block text-xs font-semibold text-slate-700 mb-1">Título / Ementa Resumida</label>
-              <input id="adm-act-title" type="text" required placeholder="Ex.: Nomeação dos membros do CME / Aprovação do Referencial..."
+              <input id="adm-act-title" type="text" required placeholder="Ex.: Aprovação do Referencial Curricular Municipal..."
                 class="w-full px-3 py-2 rounded-xl border border-slate-300 bg-white text-sm" />
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -1161,45 +1156,8 @@
               <textarea id="adm-news-body" rows="3" required placeholder="Texto da notícia ou convocação..."
                 class="w-full px-3 py-2 rounded-xl border border-slate-300 bg-white text-sm"></textarea>
             </div>
-            <label class="flex items-center gap-2 text-xs font-semibold text-slate-700 cursor-pointer select-none">
-              <input id="adm-news-add-agenda" type="checkbox" checked class="rounded text-cmeGreen-700" />
-              <span>Adicionar também ao Calendário (Próximas Reuniões e Sessões)</span>
-            </label>
             <button type="submit" class="w-full py-2.5 rounded-xl bg-cmeGreen-700 hover:bg-cmeGreen-800 text-white text-sm font-bold cursor-pointer">
               Publicar no Mural
-            </button>
-          </form>
-
-          <!-- (f) Schedule Meeting / Activity in Calendar -->
-          <form id="admin-agenda-form" class="p-5 rounded-2xl border border-slate-200 bg-slate-50/60 space-y-3.5">
-            <h3 class="font-bold text-slate-900 text-base flex items-center gap-2">
-              <span class="w-2 h-2 rounded-full bg-cmeBlue-700"></span>
-              <span>(f) Agendar Reunião / Atividade no Calendário</span>
-            </h3>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              <div>
-                <label for="adm-agenda-date" class="block text-xs font-semibold text-slate-700 mb-1">Data *</label>
-                <input id="adm-agenda-date" type="date" required
-                  class="w-full px-3 py-2 rounded-xl border border-slate-300 bg-white text-sm" />
-              </div>
-              <div>
-                <label for="adm-agenda-time" class="block text-xs font-semibold text-slate-700 mb-1">Horário (opcional)</label>
-                <input id="adm-agenda-time" type="text" placeholder="Ex.: 09h00"
-                  class="w-full px-3 py-2 rounded-xl border border-slate-300 bg-white text-sm" />
-              </div>
-            </div>
-            <div>
-              <label for="adm-agenda-title" class="block text-xs font-semibold text-slate-700 mb-1">Título da Reunião / Atividade *</label>
-              <input id="adm-agenda-title" type="text" required placeholder="Ex.: Sessão Ordinária do mês de novembro"
-                class="w-full px-3 py-2 rounded-xl border border-slate-300 bg-white text-sm" />
-            </div>
-            <div>
-              <label for="adm-agenda-place" class="block text-xs font-semibold text-slate-700 mb-1">Local / Modalidade *</label>
-              <input id="adm-agenda-place" type="text" required value="Sala de Sessões do CME — Rua Francisco de Paula, 98, Centro, Juruá/AM"
-                class="w-full px-3 py-2 rounded-xl border border-slate-300 bg-white text-sm" />
-            </div>
-            <button type="submit" class="w-full py-2.5 rounded-xl bg-cmeBlue-700 hover:bg-cmeBlue-800 text-white text-sm font-bold cursor-pointer">
-              Adicionar ao Calendário
             </button>
           </form>
 
@@ -1290,7 +1248,7 @@
     (function () {
       "use strict";
 
-      const STORAGE_KEY = "cme_jurua_am_portal_v5";
+      const STORAGE_KEY = "cme_jurua_am_portal_v4";
       const DARK_MODE_KEY = "cme_jurua_am_dark_mode_v1";
 
       // Embedded SVG data URI for the official CME Juruá-AM emblem
@@ -2415,7 +2373,6 @@
         const date = document.getElementById("adm-news-date").value;
         const title = document.getElementById("adm-news-title").value.trim();
         const body = document.getElementById("adm-news-body").value.trim();
-        const syncCalendar = document.getElementById("adm-news-add-agenda")?.checked;
 
         state.news.unshift({
           id: "news-" + Date.now(),
@@ -2424,45 +2381,10 @@
           title,
           body
         });
-
-        if (syncCalendar) {
-          const dateLabel = formatDateBr(date);
-          state.agenda.unshift({
-            id: "agenda-" + (Date.now() + 1),
-            date: dateLabel,
-            title: `${tag}: ${title}`,
-            place: "CME Juruá-AM • Consultar detalhes no mural"
-          });
-        }
-
         saveState();
         renderAll();
         e.target.reset();
-        const chk = document.getElementById("adm-news-add-agenda");
-        if (chk) chk.checked = true;
-        showToast(syncCalendar ? "Publicado no mural e adicionado ao Calendário." : "Notícia/Convocação publicada no mural.");
-      });
-
-      document.getElementById("admin-agenda-form").addEventListener("submit", (e) => {
-        e.preventDefault();
-        const rawDate = document.getElementById("adm-agenda-date").value;
-        const time = document.getElementById("adm-agenda-time").value.trim();
-        const title = document.getElementById("adm-agenda-title").value.trim();
-        const place = document.getElementById("adm-agenda-place").value.trim() || "CME Juruá-AM";
-        const dateFormatted = formatDateBr(rawDate);
-        const dateDisplay = time ? `${dateFormatted} — ${time}` : dateFormatted;
-
-        state.agenda.unshift({
-          id: "agenda-" + Date.now(),
-          date: dateDisplay,
-          title,
-          place
-        });
-        saveState();
-        renderAll();
-        e.target.reset();
-        document.getElementById("adm-agenda-place").value = "Sala de Sessões do CME — Rua Francisco de Paula, 98, Centro, Juruá/AM";
-        showToast("Reunião/Atividade adicionada ao Calendário.");
+        showToast("Notícia/Convocação publicada no mural.");
       });
 
       function renderAdminOmbudsman() {
@@ -2524,9 +2446,9 @@
       });
 
       document.getElementById("btn-export-csv").addEventListener("click", () => {
-        const headers = ["Tipo", "Numero", "Data", "Categoria", "AtoReferencia", "Situacao", "Relator", "Titulo"];
+        const headers = ["Tipo", "Numero", "Data", "Situacao", "Relator", "Titulo"];
         const rows = state.acts.map((a) =>
-          [a.type, a.number, a.date, a.category || "", a.approvalRef || "", a.status, a.rapporteur, a.title]
+          [a.type, a.number, a.date, a.status, a.rapporteur, a.title]
             .map((cell) => `"${String(cell ?? "").replace(/"/g, '""')}"`)
             .join(",")
         );
