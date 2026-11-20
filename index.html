@@ -888,6 +888,26 @@
           </div>
         </div>
 
+        <div class="p-4 sm:p-5 rounded-2xl bg-white hc-card border border-slate-200 space-y-3">
+          <div>
+            <p class="text-xs font-bold uppercase tracking-wider text-cmeBlue-700">Cartões da Página Inicial</p>
+            <h3 class="text-base font-bold text-slate-900">Indicador: Reuniões Plenárias no Ano</h3>
+            <p class="text-xs text-slate-600 hc-muted mt-0.5">
+              Este número não é calculado automaticamente a partir dos atos cadastrados — atualize-o aqui sempre que uma nova Sessão Ordinária ou Extraordinária for realizada.
+            </p>
+          </div>
+          <form id="admin-kpi-form" class="flex flex-wrap items-end gap-3">
+            <div>
+              <label for="adm-kpi-meetings" class="block text-xs font-semibold text-slate-700 mb-1">Reuniões realizadas no ano</label>
+              <input id="adm-kpi-meetings" type="number" min="0" step="1" required
+                class="w-32 px-3 py-2 rounded-xl border border-slate-300 bg-white text-sm" />
+            </div>
+            <button type="submit" class="px-4 py-2 rounded-xl bg-cmeBlue-700 hover:bg-cmeBlue-800 text-white text-xs font-bold cursor-pointer">
+              Salvar Indicador
+            </button>
+          </form>
+        </div>
+
         <div class="p-4 rounded-2xl bg-cmeBlue-50/80 border border-cmeBlue-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
           <div class="space-y-0.5">
             <p class="font-bold text-cmeBlue-900">Publicação ao vivo via Firebase</p>
@@ -1590,6 +1610,10 @@
           const val = snap.val();
           if (val) state.kpis = { ...state.kpis, ...val };
           renderHome();
+          const kpiInput = document.getElementById("adm-kpi-meetings");
+          if (kpiInput && document.activeElement !== kpiInput) {
+            kpiInput.value = state.kpis.meetingsInYear || 0;
+          }
         });
 
         db.ref("logoUrl").on("value", (snap) => {
@@ -2559,6 +2583,18 @@
             showToast("Notícia/Convocação publicada no mural.");
           })
           .catch(() => showToast("Não foi possível publicar a notícia.", "error"));
+      });
+
+      document.getElementById("admin-kpi-form").addEventListener("submit", (e) => {
+        e.preventDefault();
+        const meetings = Number(document.getElementById("adm-kpi-meetings").value);
+        if (!Number.isFinite(meetings) || meetings < 0) {
+          showToast("Informe um número válido de reuniões.", "error");
+          return;
+        }
+        db.ref("kpis/meetingsInYear").set(meetings)
+          .then(() => showToast("Indicador de reuniões atualizado."))
+          .catch(() => showToast("Não foi possível salvar o indicador.", "error"));
       });
 
       function renderAdminOmbudsman() {
